@@ -12,7 +12,7 @@
   gap: clamp(24px, 4vw, 56px);
 }
 
-/* ---------- Copy ---------- */
+
 
 .hero__title {
   color: var(--navy);
