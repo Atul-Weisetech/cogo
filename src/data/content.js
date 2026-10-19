@@ -1,0 +1,202 @@
+/**
+ * Single source of truth for every piece of copy on the marketing page.
+ * Keeping it here means section components stay pure layout.
+ */
+
+export const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Drive with COGO", href: "#drive" },
+  { label: "Features", href: "#why-cogo" },
+  { label: "Help / FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const hero = {
+  titleTop: "Move Smarter.",
+  titleBottom: "Ride Together.",
+  lead:
+    "Share a ride with verified people going your way. Pay a fair contribution, not a cab fare or offer your empty seats and split the journey.",
+  cards: [
+    {
+      key: "take",
+      label: "Take a Ride",
+      text: "Find a seat on a route that works for you.",
+      cta: "Find rides",
+      href: "#how-it-works",
+    },
+    {
+      key: "offer",
+      label: "Offer a Ride",
+      text: "Share your empty seats and split the journey.",
+      cta: "Start offering",
+      href: "#drive",
+    },
+  ],
+  badges: [
+    { image: "id", label: "ID Verified Drivers" },
+    { image: "vehicle", label: "Verified Vehicles" },
+    { image: "women", label: "Women Mode" },
+    { image: "sos", label: "One-tap SOS" },
+    { image: "call", label: "Masked Call & Chat" },
+  ],
+};
+
+export const howItWorks = [
+  {
+    key: "take",
+    title: "Take a Ride",
+    steps: [
+      "Enter where you're going",
+      "Pick a ride and see the fare upfront",
+      "Board with a QR check and track live.",
+    ],
+  },
+  {
+    key: "offer",
+    /* target for the "Drive with COGO" nav link */
+    anchorId: "drive",
+    title: "Offer a Ride",
+    steps: [
+      "Add your vehicle and verify your licence",
+      "Post your route, seats and contribution",
+      "Approve riders or let them book instantly.",
+    ],
+  },
+];
+
+export const whyCogo = [
+  {
+    image: "fair",
+    title: "Fair, upfront contribution",
+    text: "See the full fare and how it's split before you book. No surge, no surprises.",
+  },
+  {
+    image: "trust",
+    title: "People you can trust",
+    text: "Every driver's licence is verified automatically and every vehicle's RC is checked by our team.",
+  },
+  {
+    image: "saferdesign",
+    title: "Safer by design",
+    text: "SOS with 112, live trip sharing with family, masked phone numbers.",
+  },
+  {
+    image: "routine",
+    title: "Made for routines",
+    text: "COGO learns your Home ↔ Office pattern and suggests rides — you always confirm.",
+  },
+];
+
+export const stats = [
+  { image: "ride", value: 12, suffix: "k+", label: "Rides Shared" },
+  { image: "verified", value: 3.2, suffix: "k+", label: "Verified Drivers", decimals: 1 },
+  { image: "co2", value: 210, suffix: "k+", label: "kg CO2 Saved" },
+  { image: "cities", value: 48, suffix: "+", label: "Cities" },
+];
+
+export const womenMode = {
+  eyebrow: "Women Mode",
+  title: "Women Mode: rides matched only with verified women.",
+  text:
+    "Women Mode isn't a checkbox. It's unlocked by a live selfie and ID check reviewed by our safety team, so the women-only label means exactly that — for riders and for drivers.",
+  cta: "Learn about Women Mode",
+  points: ["ID + selfie verified", "Masked calling", "One-tap SOS"],
+};
+
+export const testimonials = [
+  {
+    quote:
+      "I was spending almost a third of my salary getting to work. Two months on Cogo and that bill is down to a tenth — with the same three people every morning.",
+    name: "Aditi Shah",
+    role: "Product Designer, Ahmedabad",
+    rating: 5,
+  },
+  {
+    quote:
+      "I drive Gandhinagar to Ahmedabad daily anyway. Filling three seats covers my fuel and I have company for the drive. Setup took about four minutes.",
+    name: "Rohit Mehta",
+    role: "Civil Engineer, Gandhinagar",
+    rating: 5,
+  },
+  {
+    quote:
+      "Women Mode is the reason I stayed. Knowing every co-rider is verified — and that my family can watch the trip live — makes the late shift feel normal again.",
+    name: "Priya Nair",
+    role: "Nurse, Ahmedabad",
+    rating: 5,
+  },
+];
+
+export const cities = {
+  eyebrow: "Available Cities",
+  titleLead: "Now rolling out in",
+  titleHighlight: "Ahmedabad - Gandhinagar",
+  titleTail: "- more soon",
+  prompt: "Want COGO in your city ?",
+  cta: "Contact",
+  live: ["Ahmedabad", "Gandhinagar"],
+  soon: ["Bengaluru", "Mumbai", "Pune", "Delhi NCR", "Hyderabad"],
+};
+
+export const faqs = [
+  {
+    icon: "car",
+    q: "Is COGO a taxi?",
+    a: "No. Cogo is a ride-sharing community, not a taxi service. Drivers are regular commuters already making the trip, and riders share the cost of the journey instead of paying a cab fare.",
+  },
+  {
+    icon: "price",
+    q: "How is the price decided?",
+    a: "Cogo is cost-sharing, not a taxi fare. We calculate a suggested contribution from distance, fuel and tolls, and the driver can only lower it. You see the exact amount and the split before you confirm — there is no surge pricing, ever.",
+  },
+  {
+    icon: "team",
+    q: "Who can offer rides?",
+    a: "Any verified driver with a valid licence and a vehicle whose registration (RC) has been checked by our team. Add your vehicle, verify once, and post your route, seats and contribution.",
+  },
+  {
+    icon: "safes",
+    q: "Is it safe for women?",
+    a: "Turn on Women Mode and you will only be matched with women whose ID and selfie are verified. It applies to both directions — the rides you see and the riders who can book your seats — and stays on until you switch it off.",
+  },
+  {
+    icon: "location",
+    q: "Which cities?",
+    a: "Cogo is rolling out in Ahmedabad and Gandhinagar first, with Bengaluru, Mumbai, Pune, Delhi NCR and Hyderabad coming soon. Contact us to request your city.",
+  },
+];
+
+export const appCta = {
+  title: "Your next ride is already on your route",
+  text:
+    "Scan the code to install Cogo, verify once, and book your first shared seat in under five minutes.",
+  qrNote: "Scan to download",
+};
+
+export const footer = {
+  about:
+    "Share a ride with verified people going your way. Pay a fair contribution, not a cab fare or offer your empty seats and split the journey.",
+  links: [
+    [
+      { label: "Home", href: "#home" },
+      { label: "How it works", href: "#how-it-works" },
+      { label: "Drive with COGO", href: "#drive" },
+      { label: "Features", href: "#why-cogo" },
+      { label: "Help / FAQ", href: "#faq" },
+      { label: "Contact", href: "#contact" },
+    ],
+    [
+      { label: "Customer Terms - Bike Taxi", href: "#contact" },
+      { label: "Customer Terms - Cabs and Auto", href: "#contact" },
+      { label: "Corporate Affairs", href: "#contact" },
+      { label: "Captain Terms - Bike Taxi", href: "#contact" },
+      { label: "Captain Terms - Cabs and Auto", href: "#contact" },
+    ],
+  ],
+  socials: [
+    { icon: "facebook", label: "Facebook" },
+    { icon: "instagram", label: "Instagram" },
+    { icon: "linkedin", label: "LinkedIn" },
+  ],
+};

@@ -1,0 +1,133 @@
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.faq__title {
+  font-size: clamp(26px, 3.6vw, 40px);
+  font-weight: 800;
+  max-width: 14ch;
+}
+
+.faq__help {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.faq__help span {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink-900);
+}
+
+/* ---------- Accordion ---------- */
+
+.faq__list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  border-radius: 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.faq-item.is-open {
+  border-color: var(--green);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.faq-item__icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.faq-item__q {
+  flex: 1;
+}
+
+.faq-item h3 {
+  margin: 0;
+}
+
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 24px 7px 8px;
+  text-align: left;
+  font-family: var(--font-head);
+  font-size: clamp(13.5px, 1.3vw, 14.5px);
+  font-weight: 500;
+  color: var(--ink-900);
+  border-radius: 28px;
+}
+
+.faq-item__chevron {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ink-900);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+
+/* 0fr -> 1fr gives a height animation without measuring the content */
+.faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item.is-open .faq-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-item__panel > p {
+  overflow: hidden;
+  margin: 0;
+  padding-inline: 64px 24px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+  opacity: 0;
+  transition: opacity 0.25s ease, padding-bottom 0.3s ease;
+}
+
+.faq-item.is-open .faq-item__panel > p {
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 880px) {
+  .faq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faq__title {
+    max-width: none;
+  }
+}

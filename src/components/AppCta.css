@@ -1,0 +1,188 @@
+/* doubled class so this beats the shared .section padding that index.css loads later */
+.section.app-cta-section {
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.app-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.app-cta__copy {
+  align-self: center;
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+.app-cta__title {
+  font-size: clamp(24px, 2.7vw, 34px);
+  font-weight: 800;
+}
+
+.app-cta__get {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 22px);
+  margin-top: 22px;
+}
+
+.app-cta__qr-svg {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+}
+
+.app-cta__divider {
+  align-self: stretch;
+  width: 1px;
+  background: var(--line);
+}
+
+/* ---------- SMS form ---------- */
+
+.app-cta__sms {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.app-cta__field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 6px 6px 22px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+}
+
+.app-cta__prefix {
+  padding-right: 10px;
+  border-right: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.app-cta__field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-900);
+}
+
+.app-cta__send {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+}
+
+.app-cta__note {
+  margin: 10px 0 0 4px;
+  font-size: 11.5px;
+  color: #5b4f8a;
+}
+
+/* ---------- Store badges ---------- */
+
+.store-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px 4px 9px;
+  border-radius: 8px;
+  background: var(--ink-900);
+  color: #fff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.store-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(14, 20, 32, 0.28);
+}
+
+.store-badge__glyph {
+  line-height: 0;
+}
+
+.store-badge__glyph svg {
+  width: 20px;
+  height: 20px;
+}
+
+.store-badge__text {
+  display: grid;
+  line-height: 1.25;
+}
+
+.store-badge__sub {
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.store-badge__title {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Device ---------- */
+
+.app-cta__device {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0;
+}
+
+/* the image is cropped at the phone's lower edge, so it sits flush on the section bottom */
+.app-cta__phone {
+  display: block;
+  width: min(100%, 190px);
+  height: auto;
+}
+
+@media (max-width: 880px) {
+  .app-cta {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .app-cta__title {
+    max-width: none;
+  }
+
+  .app-cta__divider {
+    display: none;
+  }
+
+  .app-cta__get {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .app-cta__copy {
+    padding-bottom: 8px;
+  }
+
+  .app-cta__device {
+    width: min(100%, 340px);
+  }
+}

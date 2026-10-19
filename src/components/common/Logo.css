@@ -1,0 +1,15 @@
+.logo {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/*
+ * The brand PNG is dark navy, which disappears on the footer / dark panels.
+ * brightness(0) crushes every colour to black, invert(1) lifts it to white,
+ * and transparency is preserved — giving a clean white wordmark.
+ * Replace with a proper light export when one is available.
+ */
+.logo--light {
+  filter: brightness(0) invert(1);
+}

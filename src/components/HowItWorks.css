@@ -1,0 +1,116 @@
+.hiw {
+  padding-block: clamp(20px, 4vw, 40px);
+}
+
+.hiw__band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(48px, 6vw, 76px);
+  /*
+   * No overlay needed: banner.png is ~12% opaque, so on this navy ground it
+   * resolves to a faint skyline, maroon road and dark-green car by itself.
+   */
+  background-color: #1f2132;
+  background-image: var(--hiw-banner);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right bottom;
+  color: #fff;
+}
+
+/* ---------- Brand corner shapes ---------- */
+
+/* rotated rounded squares, tucked into two corners and clipped by the band */
+.hiw__corner {
+  position: absolute;
+  z-index: 0;
+  background: rgba(76, 168, 92, 0.34);
+  border-radius: clamp(28px, 4vw, 52px);
+  pointer-events: none;
+}
+
+.hiw__corner--tr {
+  top: calc(clamp(180px, 24vw, 330px) / -2.1);
+  right: calc(clamp(180px, 24vw, 330px) / -2.6);
+  width: clamp(180px, 24vw, 330px);
+  aspect-ratio: 1;
+  transform: rotate(45deg);
+}
+
+.hiw__corner--bl {
+  bottom: calc(clamp(110px, 14vw, 190px) / -2.1);
+  left: calc(clamp(110px, 14vw, 190px) / -2.4);
+  width: clamp(110px, 14vw, 190px);
+  aspect-ratio: 1;
+  transform: rotate(45deg);
+}
+
+/* ---------- Content ---------- */
+
+.hiw__content {
+  position: relative;
+  z-index: 2;
+}
+
+.hiw__title {
+  text-align: center;
+  font-size: clamp(30px, 4.6vw, 48px);
+  font-weight: 800;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.hiw__columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 5vw, 72px);
+  max-width: 900px;
+}
+
+.hiw-col__title {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hiw-col__steps {
+  display: grid;
+  gap: 14px;
+}
+
+.hiw-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hiw-step__num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hiw-step__text {
+  font-size: clamp(13px, 1.2vw, 14px);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 620px) {
+  .hiw__columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
