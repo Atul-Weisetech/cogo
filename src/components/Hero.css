@@ -157,6 +157,17 @@
     border-top: 1px solid var(--line);
   }
 
+  /* centre each card's content on mobile */
+  .hero-card {
+    align-items: center;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .hero-card__text {
+    margin-inline: auto;
+  }
+
   .hero__badges {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
