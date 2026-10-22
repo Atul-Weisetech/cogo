@@ -4,7 +4,7 @@ import Icon from "./common/Icon.jsx";
 import { navLinks } from "../data/content.js";
 import "./Navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ page = "home" }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -19,7 +19,9 @@ export default function Navbar() {
 
   /* Highlight the link whose section is currently in the upper viewport. */
   useEffect(() => {
+    if (page !== "home") return undefined;
     const sections = navLinks
+      .filter((link) => !link.href.startsWith("#/"))
       .map((link) => document.querySelector(link.href))
       .filter(Boolean);
     if (!sections.length) return undefined;
@@ -36,7 +38,10 @@ export default function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [page]);
+
+  const isActive = (href) =>
+    page === "how" ? href.startsWith("#/") : active === href.slice(1);
 
   /* Lock body scroll while the mobile sheet is open. */
   useEffect(() => {
@@ -65,7 +70,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`nav__link ${active === link.href.slice(1) ? "is-active" : ""}`}
+                className={`nav__link ${isActive(link.href) ? "is-active" : ""}`}
               >
                 {link.label}
               </a>

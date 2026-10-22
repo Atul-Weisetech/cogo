@@ -1,6 +1,6 @@
 import Icon from "./common/Icon.jsx";
 import { footer } from "../data/content.js";
-import logo from "../assets/images/Logo.png";
+import logo from "../assets/images/Logo.svg";
 import "./Footer.css";
 
 /* Read once at module load so the component body stays pure. */

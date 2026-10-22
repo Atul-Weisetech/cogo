@@ -3,9 +3,12 @@
  * Keeping it here means section components stay pure layout.
  */
 
+/* hrefs starting with "#/" are separate pages (see App.jsx); the rest are home-page anchors */
+export const HOW_PAGE = "#/how-it-works";
+
 export const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "How it works", href: HOW_PAGE },
   { label: "Drive with COGO", href: "#drive" },
   { label: "Features", href: "#why-cogo" },
   { label: "Help / FAQ", href: "#faq" },
@@ -64,6 +67,97 @@ export const howItWorks = [
     ],
   },
 ];
+
+/* "How it works" page (#/how-it-works) */
+export const howPage = {
+  hero: {
+    titleTop: "Two way to",
+    titleBottom: "Ride Together.",
+    lead:
+      "Whether you need a seat or have one to share, COGO works the same way: transparent, verified, and on your route.",
+    cta: [
+      { label: "Need a seat", href: "#take-a-ride", icon: "need", variant: "primary" },
+      { label: "Have a seat to share", href: "#offer-a-ride", icon: "share", variant: "ghost" },
+    ],
+  },
+  take: {
+    id: "take-a-ride",
+    title: "Take a",
+    highlight: "Ride",
+    lead: "Find rides, share seats, and get there together. - in simple 5 steps",
+    steps: [
+      {
+        title: "Tell us where you're going",
+        text: "Enter pickup and destination, pick a date and time (or 'now'), and how many seats. Save Home and Work for one tap.",
+      },
+      {
+        title: "Compare rides that match your route",
+        text: "See the driver, vehicle, departure time, seats left and your exact contribution. Filter by instant booking, vehicle type or women-only.",
+      },
+      {
+        title: "Check the fare breakdown",
+        text: "Base contribution, platform fee and GST are itemised. The cancellation policy is shown before you confirm.",
+      },
+      {
+        title: "Book instantly or request to join",
+        text: "Some drivers confirm instantly; others approve requests. Pay by UPI, card, net banking or COGO Wallet.",
+      },
+      {
+        title: "Board with a QR check and track live",
+        text: "Scan the driver's QR to confirm you're in the right car. Share your live trip with family and chat or call with masked numbers.",
+      },
+    ],
+    chip: { label: "Nearby", icon: "pin", text: "In a hurry? Nearby shows people within 5 km right now with a fixed, banded price." },
+  },
+  offer: {
+    id: "offer-a-ride",
+    title: "Offer a",
+    highlight: "Ride",
+    lead: "Share your ride, Save on fuel. Help others. Get rewarded.",
+    steps: [
+      {
+        title: "Add your vehicle",
+        text: "Model, colour, seats and plate. Takes two minutes.",
+      },
+      {
+        title: "Verify once",
+        text: "Your driving licence is checked automatically in seconds; your RC is reviewed by our team within 24–48 hours. You'll see each status separately.",
+      },
+      {
+        title: "Post your route",
+        text: "Pickup, destination, up to 5 stops, departure time, available seats.",
+      },
+      {
+        title: "Set a fair contribution",
+        text: "We suggest a contribution based on distance and typical fuel share, with a range. You decide.",
+      },
+      {
+        title: "Choose instant booking or approve requests, then go",
+        text: "Manage riders, confirm boarding, and get paid to your bank account in T+2 working days.",
+      },
+    ],
+    chip: { label: "Smart Routine", icon: "calendar", text: "Offer the same commute every weekday? COGO prepares the ride for you to confirm each time." },
+  },
+  during: {
+    title: "During the",
+    highlight: "ride",
+    items: [
+      { image: "min", title: "Waiting Timer", text: "3 minutes free waiting, then a small per-minute charge - disclosed unfront." },
+      { image: "live", title: "Live tracking", text: "See your driver's location in real time and get arrival updates." },
+      { image: "chat", title: "Masked call & chat", text: "Your personal number stays private. Call and chat with masked IDs." },
+      { image: "sos1", title: "SOS", text: "Need help? Tap SOS to quickly alert our team and your emergency contacts." },
+    ],
+  },
+  after: {
+    title: "After the",
+    highlight: "ride",
+    items: [
+      { image: "gst", title: "Digital GST receipt", text: "Get GST compliant receipt instantly, straight to your email and in the app." },
+      { image: "rating", title: "Two-way ratings", text: "Riders rate drivers, drivers rate riders" },
+      { image: "easily", title: "Split the fare with co-riders.", text: "Travel together, share the cost, select and split easily in the app." },
+    ],
+  },
+};
 
 export const whyCogo = [
   {
@@ -180,7 +274,7 @@ export const footer = {
   links: [
     [
       { label: "Home", href: "#home" },
-      { label: "How it works", href: "#how-it-works" },
+      { label: "How it works", href: HOW_PAGE },
       { label: "Drive with COGO", href: "#drive" },
       { label: "Features", href: "#why-cogo" },
       { label: "Help / FAQ", href: "#faq" },

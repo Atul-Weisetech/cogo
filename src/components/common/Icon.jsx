@@ -108,6 +108,18 @@ const paths = {
       />
     </>
   ),
+  calendar: (
+    <>
+      <rect x="3.5" y="5" width="17" height="15" rx="3" {...S} />
+      <path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2" {...S} />
+    </>
+  ),
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="8.5" {...S} />
+      <path d="M12 7.5V12l3 2" {...S} />
+    </>
+  ),
   star: <path d="m12 3.6 2.6 5.3 5.9.9-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.8l5.9-.9L12 3.6Z" fill="currentColor" />,
   check: <path d="m5 12.5 4.5 4.5L19 7" {...S} strokeWidth="2.4" />,
   chevron: <path d="m6 9.5 6 6 6-6" {...S} strokeWidth="2" />,

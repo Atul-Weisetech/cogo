@@ -53,19 +53,9 @@
   color: var(--green-dark);
 }
 
+/* active link is shown in green only, no underline */
 .nav__link.is-active {
-  font-weight: 600;
-}
-
-.nav__link.is-active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 2.5px;
-  border-radius: 2px;
-  background: var(--green);
+  color: var(--green);
 }
 
 /* ---------- Burger ---------- */
