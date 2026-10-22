@@ -4,6 +4,8 @@ import Reveal from "./common/Reveal.jsx";
 import { testimonials } from "../data/content.js";
 import "./Testimonials.css";
 
+const SHUFFLE_MS = 550;
+
 const initials = (name) =>
   name
     .split(" ")
@@ -11,14 +13,45 @@ const initials = (name) =>
     .slice(0, 2)
     .join("");
 
+function Card({ item, className = "", hidden = false }) {
+  return (
+    <figure className={`tm-card ${className}`.trim()} aria-hidden={hidden || undefined}>
+      <div className="tm-card__stars" aria-label={`${item.rating} out of 5 stars`}>
+        {Array.from({ length: item.rating }).map((_, i) => (
+          <Icon key={i} name="star" size={13} />
+        ))}
+      </div>
+
+      <blockquote className="tm-card__quote">{item.quote}</blockquote>
+
+      <figcaption className="tm-card__person">
+        <span className="tm-card__avatar" aria-hidden="true">
+          {initials(item.name)}
+        </span>
+        <span className="tm-card__meta">
+          <span className="tm-card__name">{item.name}</span>
+          <span className="tm-card__role">{item.role}</span>
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
 
-  const go = useCallback((next) => {
-    setIndex((next + testimonials.length) % testimonials.length);
-  }, []);
+  const go = useCallback(
+    (next) => {
+      const target = (next + testimonials.length) % testimonials.length;
+      if (target === index) return;
+      setPrevIndex(index);
+      setIndex(target);
+    },
+    [index]
+  );
 
   /* Auto-advance, but stop while the reader is hovering or focused inside. */
   useEffect(() => {
@@ -27,7 +60,12 @@ export default function Testimonials() {
     return () => clearInterval(timerRef.current);
   }, [index, paused, go]);
 
-  const active = testimonials[index];
+  /* Drop the outgoing card once its sink-into-the-stack animation ends. */
+  useEffect(() => {
+    if (prevIndex === null) return undefined;
+    const t = setTimeout(() => setPrevIndex(null), SHUFFLE_MS);
+    return () => clearTimeout(t);
+  }, [prevIndex, index]);
 
   return (
     <section className="section tm-section" aria-label="Customer testimonials">
@@ -47,28 +85,21 @@ export default function Testimonials() {
           onBlurCapture={() => setPaused(false)}
         >
           {/* stacked cards peeking out behind the live one */}
-          <span className="tm__stack tm__stack--2" aria-hidden="true" />
-          <span className="tm__stack tm__stack--1" aria-hidden="true" />
+          <span className="tm__stack tm__stack--2" key={`s2-${index}`} aria-hidden="true" />
+          <span className="tm__stack tm__stack--1" key={`s1-${index}`} aria-hidden="true" />
 
-          <figure className="tm-card" key={index}>
-            <div className="tm-card__stars" aria-label={`${active.rating} out of 5 stars`}>
-              {Array.from({ length: active.rating }).map((_, i) => (
-                <Icon key={i} name="star" size={13} />
-              ))}
-            </div>
+          {/* outgoing card, sinking down into the stack */}
+          {prevIndex !== null && (
+            <Card
+              key={`out-${prevIndex}-${index}`}
+              item={testimonials[prevIndex]}
+              className="tm-card--out"
+              hidden
+            />
+          )}
 
-            <blockquote className="tm-card__quote">{active.quote}</blockquote>
-
-            <figcaption className="tm-card__person">
-              <span className="tm-card__avatar" aria-hidden="true">
-                {initials(active.name)}
-              </span>
-              <span className="tm-card__meta">
-                <span className="tm-card__name">{active.name}</span>
-                <span className="tm-card__role">{active.role}</span>
-              </span>
-            </figcaption>
-          </figure>
+          {/* incoming card, rising from the stack to the top */}
+          <Card key={index} item={testimonials[index]} className="tm-card--in" />
 
           <button
             type="button"
