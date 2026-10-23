@@ -6,10 +6,12 @@
 /* hrefs starting with "#/" are separate pages (see App.jsx); the rest are home-page anchors */
 export const HOW_PAGE = "#/how-it-works";
 
+export const DRIVE_PAGE = "#/drive";
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: HOW_PAGE },
-  { label: "Drive with COGO", href: "#drive" },
+  { label: "Drive with COGO", href: DRIVE_PAGE },
   { label: "Features", href: "#why-cogo" },
   { label: "Help / FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
@@ -33,7 +35,7 @@ export const hero = {
       label: "Offer a Ride",
       text: "Share your empty seats and split the journey.",
       cta: "Start offering",
-      href: "#drive",
+      href: DRIVE_PAGE,
     },
   ],
   badges: [
@@ -57,8 +59,6 @@ export const howItWorks = [
   },
   {
     key: "offer",
-    /* target for the "Drive with COGO" nav link */
-    anchorId: "drive",
     title: "Offer a Ride",
     steps: [
       "Add your vehicle and verify your licence",
@@ -156,6 +156,84 @@ export const howPage = {
       { image: "rating", title: "Two-way ratings", text: "Riders rate drivers, drivers rate riders" },
       { image: "easily", title: "Split the fare with co-riders.", text: "Travel together, share the cost, select and split easily in the app." },
     ],
+  },
+};
+
+/* "Drive with COGO" page (#/drive). Figures are illustrative placeholders. */
+export const drivePage = {
+  hero: {
+    titleTop: "Your empty seats",
+    titleBottom: "can pay for your commute.",
+    lead: "You're already making the trip. Share the empty seats, split the fuel and tolls, and get paid to your bank account.",
+    cta: [
+      { label: "Start offering", href: "#verification", variant: "primary" },
+      { label: "Get notified when rides are confirmed", href: "#getting-paid", variant: "ghost" },
+    ],
+  },
+  earnings: {
+    title: "Your earnings,",
+    highlight: "Made simple",
+    /* illustrative examples */
+    tabs: [
+      { key: "ex1", label: "Fare Example 1", from: "Ahmedabad", to: "Gandhinagar", km: 28, seats: 3, suggested: 80, max: 240 },
+      { key: "ex2", label: "Fare Example 2", from: "Ahmedabad", to: "Sanand", km: 32, seats: 3, suggested: 90, max: 270 },
+    ],
+  },
+  checklist: {
+    title: "Who can offer",
+    highlight: "- Checklist",
+    items: [
+      { image: "age", tone: "green", text: "18+" },
+      { image: "licence", tone: "blue", text: "Valid driving licence" },
+      { image: "rc", tone: "purple", text: "Vehicle RC in your name or with permission" },
+      { image: "puc", tone: "yellow", text: "State requirements (where applicable): insurance, PUC" },
+    ],
+    note: "Requirements can vary by state. The app shows exactly what’s needed where you drive.",
+  },
+  verification: {
+    title: "Verification",
+    highlight: "- step by step",
+    items: [
+      { image: "driving", icon: "id", title: "Driving licence", text: "Verified automatically in seconds.", status: "Instant" },
+      { image: "certificate", icon: "shield", title: "Registration certificate", text: "Reviewed by our team, typically within 24–48 hours.", status: "24–48 hrs" },
+      { image: "doc", icon: "check", title: "Additional documents", text: "Only where your city requires them.", status: "If needed" },
+    ],
+    note: "You'll always see each status separately, so nothing is hidden while you wait.",
+  },
+  control: {
+    title: "You're in",
+    highlight: "control",
+    items: [
+      { image: "booking", title: "Instant booking or approve each rider" },
+      { image: "rules", title: "Set your rules", text: "(luggage, music, pets, smoking)" },
+      { image: "only", title: "Women-only rides", text: "(for verified women drivers)" },
+      { image: "cancel", title: "Cancel with clear policies." },
+    ],
+  },
+  paid: {
+    title: "Getting",
+    highlight: "Paid",
+    items: [
+      { image: "pays", title: "Rider pays in app" },
+      { image: "cogo", title: "Cogo holds securely" },
+      { image: "payout", title: "Payout to your bank in T+2 working days" },
+      { image: "gst", title: "GST receipts for every ride" },
+    ],
+    note: "Payments are processed through an RBI-authorised payment aggregator; COGO holds funds untill settlement.",
+  },
+  reliability: {
+    title: "Your reliability",
+    highlight: "transparent",
+    items: [
+      { image: "track", label: "Completed rides", value: "Shows your track records" },
+      { image: "rating", label: "Rating", value: "Built on real experiences" },
+      { image: "ontime", label: "On-time rate", value: "Shows your reliability" },
+      { image: "cancelation", label: "Cancelation rate", value: "Reflects your commitment" },
+    ],
+  },
+  feedback: {
+    title: "Explore our",
+    highlight: "feedback",
   },
 };
 
@@ -275,7 +353,7 @@ export const footer = {
     [
       { label: "Home", href: "#home" },
       { label: "How it works", href: HOW_PAGE },
-      { label: "Drive with COGO", href: "#drive" },
+      { label: "Drive with COGO", href: DRIVE_PAGE },
       { label: "Features", href: "#why-cogo" },
       { label: "Help / FAQ", href: "#faq" },
       { label: "Contact", href: "#contact" },

@@ -12,10 +12,16 @@ import Faq from "./components/Faq.jsx";
 import AppCta from "./components/AppCta.jsx";
 import Footer from "./components/Footer.jsx";
 import BackToTop from "./components/BackToTop.jsx";
-import { HOW_PAGE } from "./data/content.js";
+import DrivePage from "./components/DrivePage.jsx";
+import { HOW_PAGE, DRIVE_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works" is a page, any other hash is a home-page anchor. */
-const getPage = () => (window.location.hash === HOW_PAGE ? "how" : "home");
+/* Minimal hash router: "#/how-it-works" and "#/drive" are pages, any other hash is a home-page anchor. */
+const getPage = () => {
+  const { hash } = window.location;
+  if (hash === HOW_PAGE) return "how";
+  if (hash === DRIVE_PAGE) return "drive";
+  return "home";
+};
 
 export default function App() {
   const [page, setPage] = useState(getPage);
@@ -29,7 +35,7 @@ export default function App() {
   /* After the page swaps, jump to the requested anchor (or the top for a page). */
   useEffect(() => {
     const { hash } = window.location;
-    if (page === "how" || !hash) {
+    if (page !== "home" || !hash) {
       window.scrollTo(0, 0);
     } else {
       document.querySelector(hash)?.scrollIntoView();
@@ -47,6 +53,8 @@ export default function App() {
       <main id="main">
         {page === "how" ? (
           <HowItWorksPage />
+        ) : page === "drive" ? (
+          <DrivePage />
         ) : (
           <>
             <Hero />

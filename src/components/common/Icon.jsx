@@ -114,6 +114,25 @@ const paths = {
       <path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2" {...S} />
     </>
   ),
+  road: <path d="M8 3 5 21M16 3l3 18M12 4v3M12 10.5v3M12 17v3" {...S} strokeWidth="2.2" />,
+  seat: (
+    <>
+      <path d="M8 3.5v9a2 2 0 0 0 2 2h6.5M8 3.5H6.5M16.5 14.5V20" {...S} strokeWidth="2.2" />
+      <path d="M10 14.5V20" {...S} strokeWidth="2.2" />
+    </>
+  ),
+  fuel: (
+    <>
+      <path d="M5 20.5V5a1.5 1.5 0 0 1 1.5-1.5h7A1.5 1.5 0 0 1 15 5v15.5M3.5 20.5h13" {...S} />
+      <path d="M7.5 7.5h5M15 9.5l2.5 2v5a1.5 1.5 0 0 0 3 0V9l-2.5-2.5" {...S} />
+    </>
+  ),
+  info: (
+    <>
+      <circle cx="12" cy="12" r="9" fill="currentColor" />
+      <path d="M12 11v5.5M12 7.6v.1" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
+    </>
+  ),
   clock: (
     <>
       <circle cx="12" cy="12" r="8.5" {...S} />
