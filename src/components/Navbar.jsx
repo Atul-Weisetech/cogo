@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Logo from "./common/Logo.jsx";
 import Icon from "./common/Icon.jsx";
-import { navLinks, HOW_PAGE, DRIVE_PAGE } from "../data/content.js";
+import { navLinks, HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE } from "../data/content.js";
 import "./Navbar.css";
 
 export default function Navbar({ page = "home" }) {
@@ -40,7 +40,7 @@ export default function Navbar({ page = "home" }) {
     return () => observer.disconnect();
   }, [page]);
 
-  const pageHref = { how: HOW_PAGE, drive: DRIVE_PAGE }[page];
+  const pageHref = { how: HOW_PAGE, drive: DRIVE_PAGE, features: FEATURES_PAGE }[page];
   const isActive = (href) => (pageHref ? href === pageHref : active === href.slice(1));
 
   /* Lock body scroll while the mobile sheet is open. */

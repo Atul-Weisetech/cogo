@@ -13,13 +13,15 @@ import AppCta from "./components/AppCta.jsx";
 import Footer from "./components/Footer.jsx";
 import BackToTop from "./components/BackToTop.jsx";
 import DrivePage from "./components/DrivePage.jsx";
-import { HOW_PAGE, DRIVE_PAGE } from "./data/content.js";
+import FeaturesPage from "./components/FeaturesPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works" and "#/drive" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive" and "#/features" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
   if (hash === DRIVE_PAGE) return "drive";
+  if (hash === FEATURES_PAGE) return "features";
   return "home";
 };
 
@@ -55,6 +57,8 @@ export default function App() {
           <HowItWorksPage />
         ) : page === "drive" ? (
           <DrivePage />
+        ) : page === "features" ? (
+          <FeaturesPage />
         ) : (
           <>
             <Hero />

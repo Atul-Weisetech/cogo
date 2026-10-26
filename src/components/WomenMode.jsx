@@ -1,6 +1,6 @@
 import Icon from "./common/Icon.jsx";
 import Reveal from "./common/Reveal.jsx";
-import { womenMode } from "../data/content.js";
+import { womenMode, FEATURES_PAGE } from "../data/content.js";
 import womenImage from "../assets/images/women.png";
 import "./WomenMode.css";
 
@@ -26,7 +26,7 @@ export default function WomenMode() {
 
             <p className="wm__text">{womenMode.text}</p>
 
-            <a href="#faq" className="btn btn--primary wm__cta">
+            <a href={FEATURES_PAGE} className="btn btn--primary wm__cta">
               {womenMode.cta}
             </a>
           </div>

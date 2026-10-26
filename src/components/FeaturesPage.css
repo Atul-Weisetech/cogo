@@ -1,0 +1,707 @@
+/* ---------- Shared ---------- */
+
+.fp-section--alt {
+  background: var(--surface);
+}
+
+.fp-title {
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 40px);
+  color: var(--navy);
+}
+
+.fp-title--light {
+  color: #fff;
+}
+
+.btn--dark {
+  background: var(--ink-900);
+  color: #fff;
+}
+
+.btn--dark:hover {
+  background: var(--ink-700);
+}
+
+/* ---------- Hero ---------- */
+
+/* The banner image already contains the illustration; the transparent navbar
+   floats over its top edge, so pull the hero up behind it. */
+.fp-hero {
+  --nav-h: calc(88px + env(safe-area-inset-top, 0px));
+  display: flex;
+  align-items: center;
+  margin-top: calc(-1 * var(--nav-h));
+  padding-top: var(--nav-h);
+  padding-bottom: clamp(32px, 5vw, 64px);
+  /* Show the whole banner width; the empty top/bottom margins of the image are cropped */
+  min-height: max(34vw, 380px);
+  background: #fff var(--fp-hero-bg) center 64% / 100% auto no-repeat;
+  overflow: hidden;
+}
+
+.fp-hero__grid {
+  width: 100%;
+}
+
+.fp-hero__copy {
+  max-width: min(46%, 420px);
+}
+
+.fp-hero__title {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.fp-hero .section-lead {
+  max-width: 46ch;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.fp-hero__cta {
+  margin-top: 24px;
+}
+
+/* ---------- Before the ride ---------- */
+
+/* The wave artwork starts above the section so it overlaps the hero's bottom
+   edge; multiply keeps its white areas from hiding the hero. */
+.fp-before {
+  position: relative;
+  background: #fff;
+}
+
+.fp-before::before {
+  content: "";
+  position: absolute;
+  inset: -70px 0 0;
+  background: var(--fp-wave) center 35% / cover no-repeat;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.fp-before > .container {
+  position: relative;
+}
+
+.fp-trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.fp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 28px;
+  border-radius: 20px;
+  background: #eaf6ef;
+  border: 1px solid rgba(76, 168, 92, 0.7);
+  text-align: center;
+}
+
+.fp-card__icon {
+  height: 44px;
+  width: auto;
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+.fp-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fp-card__text {
+  margin-top: 10px;
+  max-width: 26ch;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+/* ---------- Phone mock ---------- */
+
+.fp-phone {
+  width: min(250px, 100%);
+  margin-inline: auto;
+  padding: 8px;
+  border-radius: 34px;
+  background: #0b0f18;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), inset 0 0 0 2px #2a3447;
+}
+
+.fp-phone__screen {
+  position: relative;
+  aspect-ratio: 9 / 17;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #eef3ee var(--fp-map) center / cover no-repeat;
+}
+
+.fp-phone__notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 2;
+  width: 70px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: var(--r-pill);
+  background: #0b0f18;
+}
+
+.fp-phone__route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fp-phone__route path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 2 9;
+}
+
+.fp-phone__route .is-start {
+  fill: #fff;
+  stroke: var(--green);
+  stroke-width: 3;
+}
+
+.fp-phone__route .is-end {
+  fill: #f08a00;
+}
+
+.fp-phone__car {
+  position: absolute;
+  top: 46%;
+  left: 52%;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink-900);
+  color: #fff;
+  box-shadow: 0 0 0 6px rgba(76, 168, 92, 0.25);
+}
+
+.fp-phone__cards {
+  position: absolute;
+  inset: auto 10px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.fp-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fp-alert svg {
+  flex: none;
+  color: var(--green);
+}
+
+.fp-alert--warn svg {
+  color: #f08a00;
+}
+
+.fp-alert--sos {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.fp-alert--sos svg {
+  color: #d92d20;
+}
+
+/* ---------- During the ride (dark) ---------- */
+
+.fp-during {
+  background: linear-gradient(rgba(14, 20, 32, 0.93), rgba(14, 20, 32, 0.93)),
+    var(--fp-ride-bg) center / cover no-repeat;
+  background-color: var(--ink-850);
+  color: #fff;
+}
+
+.fp-during__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 72px);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.fp-during__phone img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.fp-during__heading {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+}
+
+.fp-during__lead {
+  margin-top: 10px;
+  max-width: 44ch;
+  font-size: 12px;
+  color: var(--text-on-dark-muted);
+}
+
+.fp-checks {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.fp-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fp-check__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.fp-check__title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.fp-check__text {
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-on-dark-muted);
+}
+
+/* ---------- Family tracking ---------- */
+
+.fp-family__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.fp-family__pin {
+  display: block;
+  height: 44px;
+  width: auto;
+  margin-bottom: 14px;
+}
+
+.fp-family__art img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.fp-family__title {
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.fp-family__text {
+  margin: 12px 0 22px;
+  max-width: 40ch;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.fp-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 820px;
+  margin: clamp(28px, 4vw, 48px) auto 0;
+  padding: 16px 24px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.fp-strip__icon {
+  flex: none;
+  height: 48px;
+  width: auto;
+}
+
+.fp-strip__body {
+  flex: 1;
+}
+
+.fp-strip__text {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fp-strip__sub {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--navy);
+}
+
+/* ---------- After the ride ---------- */
+
+.fp-after {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 56px);
+  max-width: 860px;
+  margin-inline: auto;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 12px;
+  background: #f0f1f5;
+}
+
+.fp-after__art img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.fp-after__title {
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.fp-after__lead {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.fp-after__list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.fp-after__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fp-after__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #cfeedd;
+}
+
+.fp-after__icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.fp-after__item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fp-after__item-text {
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+/* ---------- Commitments + tips grids ---------- */
+
+.fp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.fp-tile {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.fp-tile__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.fp-tile__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fp-tile__text {
+  margin-top: 4px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Commitments: flat grey cards with a green outline and image icons */
+.fp-grid--soft .fp-tile {
+  align-items: center;
+  background: #f1f2f6;
+  border-color: rgba(76, 168, 92, 0.7);
+  box-shadow: none;
+}
+
+.fp-tile__img {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Tips: flat white cards, centred image icon above the text */
+.fp-grid--tips .fp-tile {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 20px;
+  border-radius: 4px;
+  border-color: #e6e7ec;
+  box-shadow: none;
+  text-align: center;
+}
+
+.fp-grid--tips .fp-tile__img {
+  width: 48px;
+  height: 48px;
+}
+
+.fp-grid--tips .fp-tile__title {
+  font-size: 13px;
+}
+
+.fp-grid--tips .fp-tile__text {
+  margin-inline: auto;
+  max-width: 28ch;
+  font-size: 10px;
+  color: var(--navy);
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* Large desktops / TVs: give the content blocks more room */
+@media (min-width: 1400px) {
+  .fp-trio,
+  .fp-grid,
+  .fp-during__grid,
+  .fp-family__grid,
+  .fp-after,
+  .fp-strip {
+    max-width: 1000px;
+  }
+
+  .fp-hero__copy {
+    max-width: 460px;
+  }
+}
+
+/* Small laptops / landscape tablets: keep the copy clear of the illustration */
+@media (max-width: 1100px) {
+  .fp-hero__copy {
+    max-width: 40%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .fp-trio,
+  .fp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 600px;
+  }
+
+  /* an odd last card sits centred instead of leaving a hole */
+  .fp-trio > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 8px);
+  }
+}
+
+/* Stack the two-column blocks */
+@media (max-width: 800px) {
+  .fp-during__grid,
+  .fp-family__grid,
+  .fp-after {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* text on top, the illustration (bottom of the banner) underneath */
+  .fp-hero {
+    align-items: flex-start;
+    min-height: 0;
+    padding-bottom: 60vw;
+    background-size: 170% auto;
+    background-position: 79% bottom;
+  }
+
+  .fp-hero__copy {
+    max-width: 100%;
+  }
+
+  .fp-during__grid,
+  .fp-family__grid {
+    max-width: 480px;
+  }
+
+  .fp-family__copy {
+    text-align: center;
+  }
+
+  .fp-family__pin,
+  .fp-family__text {
+    margin-inline: auto;
+  }
+
+  .fp-after__art img {
+    max-width: 320px;
+  }
+}
+
+/* The strip no longer fits on one row */
+@media (max-width: 700px) {
+  .fp-strip {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 28px;
+    text-align: center;
+  }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .fp-hero {
+    text-align: center;
+  }
+
+  .fp-hero .section-lead {
+    margin-inline: auto;
+  }
+
+  .fp-trio,
+  .fp-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+  }
+
+  .fp-trio > :last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .fp-after {
+    padding: 20px 16px;
+  }
+
+  .fp-after__item {
+    align-items: flex-start;
+  }
+
+  .fp-strip__text {
+    font-size: 16px;
+  }
+
+  /* tiny type is hard to read on a phone */
+  .fp-during__lead,
+  .fp-after__lead,
+  .fp-card__text,
+  .fp-strip__sub {
+    font-size: 13px;
+  }
+
+  .fp-check__text,
+  .fp-after__item-text,
+  .fp-tile__text,
+  .fp-grid--tips .fp-tile__text {
+    font-size: 12px;
+  }
+
+  .fp-grid--tips .fp-tile__title {
+    font-size: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .fp-hero__title {
+    font-size: 28px;
+  }
+
+  .fp-card,
+  .fp-tile {
+    padding-inline: 14px;
+  }
+
+  .btn--dark {
+    padding-inline: 14px;
+  }
+}

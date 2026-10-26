@@ -8,11 +8,13 @@ export const HOW_PAGE = "#/how-it-works";
 
 export const DRIVE_PAGE = "#/drive";
 
+export const FEATURES_PAGE = "#/features";
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: HOW_PAGE },
   { label: "Drive with COGO", href: DRIVE_PAGE },
-  { label: "Features", href: "#why-cogo" },
+  { label: "Features", href: FEATURES_PAGE },
   { label: "Help / FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
@@ -276,6 +278,87 @@ export const womenMode = {
   points: ["ID + selfie verified", "Masked calling", "One-tap SOS"],
 };
 
+/* "Features" page (#/features): the safety story, before / during / after a ride. Copy is placeholder pending final Figma text. */
+export const featuresPage = {
+  hero: {
+    title: "Women",
+    highlight: "Mode",
+    lead:
+      "Rides matched only with women whose identity has been checked by our safety team - as riders and as drivers.",
+    cta: "Start Offering",
+    href: "#before-ride",
+  },
+  before: {
+    id: "before-ride",
+    title: "Safety starts",
+    highlight: "before the ride",
+    items: [
+      { icon: "id", title: "Verified Identity", text: "We check driver licences for a safer, trusted ride." },
+      { icon: "car", title: "Verified Vehicle", text: "We review RC details and show the plate number masked until booking." },
+      { icon: "user", title: "Transparent profiles", text: "See real ratings, completed rides, cancelation rates and member since." },
+    ],
+  },
+  during: {
+    title: "During the",
+    highlight: "Ride",
+    heading: "Real-time safety,",
+    headingAccent: "while you move.",
+    lead: "Stay informed, stay in control - with live tracking, instant support and privacy, all in one place.",
+    items: [
+      { title: "QR boarding check", text: "\"Confirm it's the right car.\"" },
+      { title: "Live tracking with route deviation alerts", text: "We notify you if the car leaves the planned route." },
+      { title: "One-tap SOS", text: "Calls 112 and alerts your trusted contacts with your live location." },
+      { title: "Masked call and in-app chat.", text: "Your number stays private." },
+    ],
+  },
+  family: {
+    title: "Family",
+    highlight: "tracking",
+    text: "Share a live link with family - no app needed. It expire when you arrive.",
+    cta: "Family Tracking",
+    strip: {
+      text: "Women Mode. Verified, not self-declared.",
+      sub: "Rides matched only with women whose identity has been checked by our safety team.",
+      cta: "Learn about Women Mode",
+    },
+  },
+  after: {
+    title: "After the",
+    highlight: "ride",
+    lead: "Your feedback matters. We're here to help.",
+    items: [
+      { icon: "ratings", title: "Two-way ratings.", text: "Rate your ride. Drivers can rate you too. A fairer experience for everyone." },
+      { icon: "issue", title: "Report an issue with evidence", text: "Share details, photos or video. We take it seriously." },
+      { icon: "response", title: "24-48 h response commitment", text: "We'll review and get back to you within 24-48 hours." },
+      { icon: "grievance", title: "Grievance officer link", text: "Need more help? Reach our grievance officer directly, anytime." },
+    ],
+  },
+  commitments: {
+    title: "Our safety",
+    highlight: "commitments",
+    items: [
+      { image: "human", title: "Human Verification", text: "Human review for RC and Women Mode." },
+      { image: "privacy", title: "Data Privacy Protected", text: "We never sell personal data" },
+      { image: "expiry", title: "ID data expiry", text: "raw ID documents stored longer than needed." },
+      { image: "emergency", title: "Emergency Contacts", text: "Emergency contacts are only used for SOS and trip sharing" },
+      { image: "clear", title: "Data Clear", text: "We never sell personal data" },
+      { image: "zero", title: "Zero Tolerance", text: "Zero tolerance harassment policy community guidelines." },
+    ],
+  },
+  tips: {
+    title: "Safety tip for",
+    highlight: "Riders & Drivers",
+    items: [
+      { image: "verifyRide", title: "Verified your ride", text: "Match license plate, vehicle model, and driver photo before getting in." },
+      { image: "shareTrip", title: "Share your trip", text: "Use real-time location tracking for peace of mind." },
+      { image: "sit", title: "Sit where comfortable", text: "Choose the front or back seat based on your preference." },
+      { image: "chat", title: "Keep chat in-app", text: "Protect personal details by communicating through the platform." },
+      { image: "safetyTools", title: "Know safety tools", text: "Familiarize yourself with emergency contacts and features in the app." },
+      { image: "driveRes", title: "Drive Responsibly", text: "Follow all traffic rules, stay focused, and wear a seatbelt always." },
+    ],
+  },
+};
+
 export const testimonials = [
   {
     quote:
@@ -354,7 +437,7 @@ export const footer = {
       { label: "Home", href: "#home" },
       { label: "How it works", href: HOW_PAGE },
       { label: "Drive with COGO", href: DRIVE_PAGE },
-      { label: "Features", href: "#why-cogo" },
+      { label: "Features", href: FEATURES_PAGE },
       { label: "Help / FAQ", href: "#faq" },
       { label: "Contact", href: "#contact" },
     ],
