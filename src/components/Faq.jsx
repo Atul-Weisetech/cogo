@@ -11,7 +11,7 @@ import "./Faq.css";
 
 const icons = { car, safes, price, location, team };
 
-export default function Faq() {
+export default function Faq({ title = "Quick Answer to", highlight = "your top questions" }) {
   const [openIndex, setOpenIndex] = useState(0);
   const baseId = useId();
 
@@ -20,7 +20,7 @@ export default function Faq() {
       <div className="container faq">
         <Reveal className="faq__copy">
           <h2 className="faq__title">
-            Quick Answer to <span className="text-green">your top questions</span>
+            {title} <span className="text-green">{highlight}</span>
           </h2>
 
           <div className="faq__help">

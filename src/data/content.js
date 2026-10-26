@@ -10,12 +10,14 @@ export const DRIVE_PAGE = "#/drive";
 
 export const FEATURES_PAGE = "#/features";
 
+export const HELP_PAGE = "#/help";
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: HOW_PAGE },
   { label: "Drive with COGO", href: DRIVE_PAGE },
   { label: "Features", href: FEATURES_PAGE },
-  { label: "Help / FAQ", href: "#faq" },
+  { label: "Help / FAQ", href: HELP_PAGE },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -358,6 +360,57 @@ export const featuresPage = {
   },
 };
 
+/* "Help / FAQ" page (#/help): how Women Mode verification works. */
+export const helpPage = {
+  hero: {
+    title: "Women Mode.",
+    /* the word joiner stops the title wrapping at the hyphen */
+    highlight: "Verified, not self-⁠declared.",
+    lead:
+      "Rides matched only with women whose identity has been checked by our safety team — as riders and as drivers.",
+    cta: "Start Offering",
+    href: DRIVE_PAGE,
+  },
+  steps: {
+    title: "How",
+    highlight: "verification works",
+    items: [
+      { image: "selfie", title: "Take a live selfie in the app" },
+      { image: "id", title: "Add your ID" },
+      { image: "team", title: "Our safety team reviews Typically within 24–48 hours." },
+      { image: "unlock", title: "Women Mode unlocks in Preferences" },
+    ],
+    note:
+      "Your ID image is used only for this check and is deleted after the decision. It is never reused for anything else without a fresh consent.",
+  },
+  changes: {
+    title: "What changes when",
+    highlight: "Women Mode is on",
+    items: [
+      { image: "filter", title: "Women-only filter in Take a Ride" },
+      { image: "offer", title: "Women-only rides when you offer" },
+      { image: "badge", title: "Women Mode badge on your profile" },
+    ],
+  },
+  privacy: {
+    title: "Your",
+    highlight: "privacy",
+    items: [
+      { image: "used", title: "Used only for this check", text: "Your selfie and ID are used only to verify your identity for Women Mode." },
+      { image: "deleted", title: "Deleted after the decision", text: "Your ID image and selfie are permanently deleted after the verification decision is complete." },
+      { image: "private", title: "Not shared with other riders", text: "Your ID and selfie are never shared with other riders. Others only see a Women Mode badge on your profile." },
+    ],
+  },
+  feedback: {
+    title: "Explore our",
+    highlight: "feedback",
+  },
+  faq: {
+    title: "Women Mode",
+    highlight: "questions",
+  },
+};
+
 export const testimonials = [
   {
     quote:
@@ -430,7 +483,7 @@ export const footer = {
       { label: "How it works", href: HOW_PAGE },
       { label: "Drive with COGO", href: DRIVE_PAGE },
       { label: "Features", href: FEATURES_PAGE },
-      { label: "Help / FAQ", href: "#faq" },
+      { label: "Help / FAQ", href: HELP_PAGE },
       { label: "Contact", href: "#contact" },
     ],
     [
