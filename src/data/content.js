@@ -275,7 +275,6 @@ export const womenMode = {
   text:
     "Women Mode isn't a checkbox. It's unlocked by a live selfie and ID check reviewed by our safety team, so the women-only label means exactly that — for riders and for drivers.",
   cta: "Learn about Women Mode",
-  points: ["ID + selfie verified", "Masked calling", "One-tap SOS"],
 };
 
 /* "Features" page (#/features): the safety story, before / during / after a ride. Copy is placeholder pending final Figma text. */
@@ -421,13 +420,6 @@ export const faqs = [
     a: "Cogo is rolling out in Ahmedabad and Gandhinagar first, with Bengaluru, Mumbai, Pune, Delhi NCR and Hyderabad coming soon. Contact us to request your city.",
   },
 ];
-
-export const appCta = {
-  title: "Your next ride is already on your route",
-  text:
-    "Scan the code to install Cogo, verify once, and book your first shared seat in under five minutes.",
-  qrNote: "Scan to download",
-};
 
 export const footer = {
   about:

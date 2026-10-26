@@ -13,8 +13,7 @@ import chatImg from "../assets/images/chat.svg";
 import sosImg from "../assets/images/sos1.svg";
 import needIcon from "../assets/images/need.svg";
 import shareIcon from "../assets/images/share.svg";
-import phoneTake from "../assets/images/phone-t.svg";
-import phoneOffer from "../assets/images/phone-t.svg";
+import phoneImg from "../assets/images/phone-t.svg";
 import "./HowItWorksPage.css";
 
 const ctaIcons = { need: needIcon, share: shareIcon };
@@ -161,8 +160,8 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <Journey data={take} phone={phoneTake} alt="Cogo app: finding a ride" />
-      <Journey data={offer} phone={phoneOffer} alt="Cogo app: posting a ride" reverse />
+      <Journey data={take} phone={phoneImg} alt="Cogo app: finding a ride" />
+      <Journey data={offer} phone={phoneImg} alt="Cogo app: posting a ride" reverse />
       <CardRow data={during} />
       <CardRow data={after} dark />
       <Faq />

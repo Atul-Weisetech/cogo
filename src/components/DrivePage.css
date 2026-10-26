@@ -259,8 +259,7 @@
   box-shadow: 0 14px 28px rgba(16, 24, 40, 0.12);
 }
 
-.dp-card__icon,
-.dp-card__num {
+.dp-card__icon {
   display: grid;
   place-items: center;
   width: 40px;
@@ -390,17 +389,6 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
-
-.dp-card__num {
-  border-radius: 50%;
-  font-family: var(--font-head);
-  font-weight: 700;
-}
-
-.dp-card:first-child .dp-card__num {
-  background: var(--green);
-  color: #fff;
 }
 
 .dp-card__title {
