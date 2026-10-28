@@ -15,15 +15,17 @@ import BackToTop from "./components/BackToTop.jsx";
 import DrivePage from "./components/DrivePage.jsx";
 import FeaturesPage from "./components/FeaturesPage.jsx";
 import HelpPage from "./components/HelpPage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE } from "./data/content.js";
+import PricingPage from "./components/PricingPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features" and "#/help" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
   if (hash === DRIVE_PAGE) return "drive";
   if (hash === FEATURES_PAGE) return "features";
   if (hash === HELP_PAGE) return "help";
+  if (hash === PRICING_PAGE) return "pricing";
   return "home";
 };
 
@@ -63,6 +65,8 @@ export default function App() {
           <FeaturesPage />
         ) : page === "help" ? (
           <HelpPage />
+        ) : page === "pricing" ? (
+          <PricingPage />
         ) : (
           <>
             <Hero />

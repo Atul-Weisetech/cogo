@@ -11,7 +11,11 @@ import "./Faq.css";
 
 const icons = { car, safes, price, location, team };
 
-export default function Faq({ title = "Quick Answer to", highlight = "your top questions" }) {
+export default function Faq({
+  title = "Quick Answer to",
+  highlight = "your top questions",
+  items = faqs,
+}) {
   const [openIndex, setOpenIndex] = useState(0);
   const baseId = useId();
 
@@ -33,7 +37,7 @@ export default function Faq({ title = "Quick Answer to", highlight = "your top q
         </Reveal>
 
         <Reveal as="ul" className="faq__list" delay={100}>
-          {faqs.map((item, i) => {
+          {items.map((item, i) => {
             const open = openIndex === i;
             const panelId = `${baseId}-panel-${i}`;
             const buttonId = `${baseId}-button-${i}`;

@@ -8,6 +8,7 @@ import {
   DRIVE_PAGE,
   FEATURES_PAGE,
   HELP_PAGE,
+  PRICING_PAGE,
 } from "../data/content.js";
 import "./Navbar.css";
 
@@ -153,7 +154,7 @@ export default function Navbar({ page = "home" }) {
     return () => observer.disconnect();
   }, [page]);
 
-  const pageHref = { how: HOW_PAGE, drive: DRIVE_PAGE, features: FEATURES_PAGE, help: HELP_PAGE }[page];
+  const pageHref = { how: HOW_PAGE, drive: DRIVE_PAGE, features: FEATURES_PAGE, help: HELP_PAGE, pricing: PRICING_PAGE }[page];
   const isActive = (href) => (pageHref ? href === pageHref : active === href.slice(1));
 
   /* A dropdown entry that duplicates a top-level link (Help, Safety) must not

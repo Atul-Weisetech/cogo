@@ -12,6 +12,8 @@ export const FEATURES_PAGE = "#/features";
 
 export const HELP_PAGE = "#/help";
 
+export const PRICING_PAGE = "#/pricing";
+
 /* Primary nav. An item with `children` renders as a dropdown. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
@@ -22,11 +24,11 @@ export const navLinks = [
     children: [
       { label: "Women Mode", href: HELP_PAGE },
       { label: "Family tracking & SOS", href: FEATURES_PAGE },
-      { label: "Fair, upfront pricing", href: "#why-cogo" },
+      { label: "Fair, upfront pricing", href: PRICING_PAGE },
       { label: "Available cities", href: "#cities" },
     ],
   },
-  { label: "Pricing", href: "#why-cogo" },
+  { label: "Pricing", href: PRICING_PAGE },
   { label: "Help", href: HELP_PAGE },
 ];
 
@@ -251,6 +253,164 @@ export const drivePage = {
     highlight: "feedback",
   },
 };
+
+/* "Pricing" page (#/pricing). Every rupee figure, rate and plan price here is an
+   illustrative placeholder until the final fare and policy numbers are confirmed. */
+export const pricingPage = {
+  hero: {
+    title: "Fair contributions,",
+    highlight: "shown before you book.",
+    lead: "COGO is cost-sharing. Drivers set a contribution within a suggested range, so you see every line before paying.",
+  },
+  fare: {
+    title: "How a fare is",
+    highlight: "built",
+    lead: "Every fare starts from the distance band, then adds the same few lines, in the same order.",
+    bands: [
+      { key: "A", label: "Short ride", range: "0–5 km" },
+      { key: "B", label: "Medium ride", range: "5–20 km" },
+      { key: "C", label: "Intercity ride", range: "20 km +" },
+    ],
+    breakdownTitle: "Sample fare · 15 km",
+    /* The medium ride below is the sample shown in the breakdown. */
+    sample: "medium",
+  },
+  examples: {
+    title: "Fare",
+    highlight: "examples",
+    lead: "Total = open contribution + distance + platform fee + GST − discounts.",
+    /* GST is 18% of the platform fee. `total` is derived in the component. */
+    rides: [
+      { key: "short", name: "Short ride", route: "Within the city", km: 4, open: 20, distance: 8, fee: 5, gst: 1, discount: 0 },
+      { key: "medium", name: "Medium ride", route: "Across the city", km: 15, open: 35, distance: 30, fee: 8, gst: 1, discount: 5 },
+      { key: "intercity", name: "Intercity ride", route: "Between cities", km: 28, open: 60, distance: 56, fee: 12, gst: 2, discount: 10 },
+    ],
+    note: "Illustrative fares. Your exact total is always shown in the app before you confirm.",
+  },
+  compare: {
+    title: "How COGO",
+    highlight: "compares",
+    columns: ["COGO", "Cabs", "Autos", "Buses"],
+    /* Each cell is [good?, text]. Column order matches `columns`. */
+    rows: [
+      { label: "Surge pricing", cells: [[true, "Never"], [false, "Can apply"], [true, "Rare"], [true, "No"]] },
+      { label: "Comfort", cells: [[true, "Car seat"], [true, "Car seat"], [false, "Basic"], [false, "Crowded"]] },
+      { label: "Door-to-door", cells: [[true, "Yes"], [true, "Yes"], [true, "Yes"], [false, "Stops only"]] },
+      { label: "Price known upfront", cells: [[true, "Always"], [true, "Usually"], [false, "Negotiated"], [true, "Fixed"]] },
+      { label: "Verified people", cells: [[true, "ID checked"], [false, "Driver only"], [false, "Varies"], [false, "No"]] },
+    ],
+    note: "A general comparison of how each option usually works.",
+  },
+  pay: {
+    title: "Ways to",
+    highlight: "pay",
+    methods: [
+      { icon: "upi", name: "UPI", text: "Pay with any UPI app in a couple of taps." },
+      { icon: "card", name: "Cards", text: "Credit and debit cards, saved securely for next time." },
+      { icon: "bank", name: "Net banking", text: "Pay straight from your bank account." },
+      { icon: "wallet", name: "COGO wallet", text: "Top up once, then pay and get refunds instantly." },
+    ],
+    note: "Payments run through an RBI-authorised payment aggregator. COGO holds the amount until the ride is complete.",
+  },
+  cancel: {
+    title: "Waiting &",
+    highlight: "cancellation",
+    lead: "Short waits are free and early cancellations cost nothing. Clear rules keep it fair for riders and drivers.",
+    cta: { label: "Read the Cancellation & Refund Policy", href: "#contact" },
+    rows: [
+      { label: "Waiting at pickup (first 5 min)", value: "Free" },
+      { label: "Cancel 24+ hours before departure", value: "Free" },
+      { label: "Cancel 2–24 hours before", value: "25% fee" },
+      { label: "Cancel within 2 hours", value: "50% fee" },
+      { label: "Refund timeline", value: "5–7 working days" },
+    ],
+  },
+  plans: {
+    title: "Our",
+    highlight: "Plans",
+    items: [
+      {
+        key: "free",
+        tone: "free",
+        name: "Free",
+        price: "₹0",
+        blurb: "Everything you need to ride and offer rides.",
+        features: [
+          "Book and offer rides",
+          "Fare shown before you pay",
+          "Verified riders and drivers",
+          "Women Mode, live tracking and SOS",
+          "Digital GST receipts",
+        ],
+        cta: { label: "Current Plan", current: true },
+      },
+      {
+        key: "rider",
+        tone: "rider",
+        name: "Rider Plus",
+        price: "₹99",
+        per: "/mo",
+        blurb: "For people who ride most days.",
+        features: [
+          "Zero platform fee on rides",
+          "Priority booking on popular routes",
+          "Longer free waiting time",
+          "More flexible cancellations",
+          "Priority support",
+        ],
+        cta: { label: "Get Rider Plus", href: "#app" },
+      },
+      {
+        key: "driver",
+        tone: "driver",
+        name: "Driver Pro",
+        price: "₹199",
+        per: "/mo",
+        blurb: "For drivers who share their seats often.",
+        features: [
+          "Lower platform fee on every ride",
+          "Faster payouts to your bank",
+          "Priority placement in search",
+          "Earnings insights",
+          "Priority support",
+        ],
+        cta: { label: "Get Driver Pro", href: "#app" },
+      },
+    ],
+  },
+  faq: {
+    title: "Pricing",
+    highlight: "questions",
+  },
+};
+
+export const pricingFaqs = [
+  {
+    icon: "price",
+    q: "Is there surge pricing?",
+    a: "No. COGO is cost-sharing, so the contribution comes from distance, fuel and tolls, never from demand. The price you see does not rise because it is busy or raining.",
+  },
+  {
+    icon: "car",
+    q: "Who decides the contribution?",
+    a: "We suggest a contribution for every route. The driver can keep it or lower it, but never raise it, so you will not be asked for more than the suggested amount.",
+  },
+  {
+    icon: "team",
+    q: "Are there any hidden fees?",
+    a: "No. The fare breaks down into the open contribution, distance, a platform fee, GST and any discounts. You see each line before you confirm the booking.",
+  },
+  {
+    icon: "safes",
+    q: "When am I charged?",
+    a: "You pay in the app when you confirm a ride. COGO holds the amount securely and releases it to the driver once the ride is complete.",
+  },
+  {
+    icon: "location",
+    q: "How do refunds work?",
+    a: "If a ride is cancelled and a refund applies, it goes back to your original payment method in 5–7 working days, or instantly to your COGO wallet.",
+  },
+];
 
 export const whyCogo = [
   {
@@ -495,6 +655,7 @@ export const footer = {
       { label: "How it works", href: HOW_PAGE },
       { label: "Drive with COGO", href: DRIVE_PAGE },
       { label: "Features", href: FEATURES_PAGE },
+      { label: "Pricing", href: PRICING_PAGE },
       { label: "Help / FAQ", href: HELP_PAGE },
       { label: "Contact", href: "#contact" },
     ],
