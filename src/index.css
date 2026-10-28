@@ -21,6 +21,7 @@
   --bg: #ffffff;
   --surface: #f3f5f9;
   --surface-2: #eef1f7;
+  --card: #ffffff;
   --line: #e2e7ef;
 
   /* Text */
@@ -53,6 +54,31 @@
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
   color-scheme: light;
+}
+
+/* Dark theme: the navbar switch sets data-theme="dark" on <html>.
+   Components only override what the tokens below can't reach. */
+:root[data-theme="dark"] {
+  --green-soft: rgba(76, 168, 92, 0.16);
+  --green-soft-2: rgba(76, 168, 92, 0.26);
+
+  --bg: #161c28;
+  --surface: #222833;
+  --surface-2: #222833;
+  --card: #222833;
+  --raised: #2d323d; /* chips, secondary buttons, hovers on cards */
+  --line: #2d323d;
+
+  --navy: #ffffff;
+  --text: #ffffff;
+  --text-muted: #a9b2c2;
+  --text-faint: #7d879a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.25), 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.3), 0 28px 60px rgba(0, 0, 0, 0.45);
+
+  color-scheme: dark;
 }
 
 *,
@@ -160,6 +186,10 @@ svg {
   letter-spacing: 0.01em;
 }
 
+[data-theme="dark"] .eyebrow {
+  color: var(--green-bright);
+}
+
 .section-title {
   font-size: clamp(28px, 4.2vw, 42px);
   font-weight: 800;
@@ -228,6 +258,16 @@ svg {
 
 .btn--dark:hover {
   background: var(--ink-700);
+}
+
+/* on a dark page the "dark" button flips to a white pill */
+[data-theme="dark"] .btn--dark {
+  background: #fff;
+  color: var(--ink-900);
+}
+
+[data-theme="dark"] .btn--dark:hover {
+  background: #e6e8ec;
 }
 
 .btn--sm {

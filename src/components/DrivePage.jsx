@@ -24,6 +24,7 @@ import ratingImg from "../assets/images/rating.png";
 import onTimeImg from "../assets/images/on-time.png";
 import cancelationImg from "../assets/images/cancelation.png";
 import heroBg from"../assets/images/bg-d.jpg";
+import heroBgDark from "../assets/images/dark-Banner.jpg";
 import "./DrivePage.css";
 
 /* The app uses hash routing, so a plain "#section" link would switch to the
@@ -201,7 +202,10 @@ export default function DrivePage() {
 
   return (
     <>
-      <section className="dp-hero" style={{ "--dp-hero-bg": `url("${heroBg}")` }}>
+      <section
+        className="dp-hero"
+        style={{ "--dp-hero-bg": `url("${heroBg}")`, "--dp-hero-bg-dark": `url("${heroBgDark}")` }}
+      >
         <div className="container dp-hero__grid">
           <div className="dp-hero__copy">
             <Reveal as="h1" className="dp-hero__title">
@@ -221,6 +225,7 @@ export default function DrivePage() {
                   onClick={scrollTo(b.href)}
                 >
                   {b.label}
+                  <Icon name="arrowRight" size={16} />
                 </a>
               ))}
             </Reveal>

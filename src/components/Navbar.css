@@ -13,8 +13,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(16px, 3vw, 40px);
+  gap: clamp(14px, 2vw, 28px);
   height: 56px;
+  max-width: 900px;
+  margin-inline: auto;
   padding-inline: clamp(16px, 2.4vw, 20px);
   border-radius: var(--r-pill);
   background: #f1f2f6;
@@ -23,6 +25,14 @@
 
 .nav.is-scrolled .nav__pill {
   box-shadow: 0 2px 8px rgba(16, 24, 40, 0.07), 0 10px 28px rgba(16, 24, 40, 0.08);
+}
+
+[data-theme="dark"] .nav__pill {
+  background: var(--card);
+}
+
+[data-theme="dark"] .nav.is-scrolled .nav__pill {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
 .nav__brand {
@@ -36,7 +46,7 @@
 .nav__links {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 2.2vw, 32px);
+  gap: clamp(12px, 1.6vw, 22px);
 }
 
 .nav__link {
@@ -53,9 +63,146 @@
   color: var(--green-dark);
 }
 
+[data-theme="dark"] .nav__link:hover {
+  color: var(--green-bright);
+}
+
 /* active link is shown in green only, no underline */
 .nav__link.is-active {
   color: var(--green);
+}
+
+/* ---------- Dropdown (Features) ---------- */
+
+.nav__dropdown {
+  position: relative;
+}
+
+.nav__link--btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.nav__caret {
+  transition: transform 0.2s ease;
+}
+
+[aria-expanded="true"] > .nav__caret {
+  transform: rotate(180deg);
+}
+
+.nav__menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 5;
+  min-width: 210px;
+  padding: 6px;
+  border-radius: var(--r-md);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-50%);
+  animation: menu-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    margin-top: -6px;
+  }
+}
+
+.nav__menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--navy);
+}
+
+.nav__menu a:hover {
+  background: var(--surface);
+}
+
+.nav__menu .is-active {
+  color: var(--green);
+}
+
+[data-theme="dark"] .nav__menu a:hover {
+  background: var(--raised);
+}
+
+/* ---------- Right-hand tools: theme switch, CTA ---------- */
+
+.nav__tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* pill-shaped switch with a round knob carrying the moon */
+.nav__theme {
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 20px;
+  padding: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink-900);
+  transition: background-color 0.2s ease;
+}
+
+.nav__theme-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink-900);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), color 0.2s ease;
+}
+
+/* the icon is re-mounted on every switch (keyed), so it spins in each time */
+.nav__theme-knob svg {
+  animation: theme-icon-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    transform: rotate(-120deg) scale(0.4);
+  }
+}
+
+/* light mode: moon on the left of the dark track; dark mode: the knob
+   slides right and turns into an orange sun on a grey track */
+.nav__theme.is-dark {
+  background: #3a414c;
+}
+
+.nav__theme.is-dark .nav__theme-knob {
+  color: #f6a60b;
+  transform: translateX(16px);
+}
+
+.nav__cta {
+  height: 34px;
+  padding: 0 18px;
+  font-size: 13px;
 }
 
 /* ---------- Burger ---------- */
@@ -81,7 +228,7 @@
   z-index: 2;
   padding: 10px;
   border-radius: var(--r-lg);
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-lg);
   transform-origin: top center;
@@ -115,8 +262,46 @@
   background: var(--surface);
 }
 
+[data-theme="dark"] .nav__sheet-links a:hover {
+  background: var(--raised);
+}
+
 .nav__sheet-links svg {
   color: var(--text-faint);
+}
+
+.nav__sheet-group {
+  display: grid;
+}
+
+.nav__sheet-label {
+  padding: 13px 14px 4px;
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.nav__sheet-links .nav__sheet-sub {
+  padding-block: 10px;
+  padding-left: 26px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav__sheet-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  padding: 14px 14px 6px;
+  border-top: 1px solid var(--line);
+}
+
+.nav__sheet-tools .btn {
+  margin-left: auto;
 }
 
 .nav__scrim {
@@ -130,8 +315,9 @@
 
 /* ---------- Breakpoints ---------- */
 
-@media (max-width: 960px) {
-  .nav__links {
+@media (max-width: 1060px) {
+  .nav__links,
+  .nav__tools {
     display: none;
   }
 
@@ -141,5 +327,18 @@
 
   .nav__pill {
     height: 54px;
+  }
+}
+
+/* Large screens: the pill grows with the rest of the page */
+@media (min-width: 1800px) {
+  .nav__pill {
+    max-width: 1100px;
+    height: 64px;
+  }
+
+  .nav__link,
+  .nav__cta {
+    font-size: 15px;
   }
 }

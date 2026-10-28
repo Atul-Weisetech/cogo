@@ -22,6 +22,11 @@
   transform: none;
 }
 
+[data-theme="dark"] .stats {
+  background: #1d232f;
+  box-shadow: none;
+}
+
 .stat {
   position: relative;
   display: flex;

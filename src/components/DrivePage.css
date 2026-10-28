@@ -633,6 +633,89 @@
   color: var(--text-muted);
 }
 
+/* ---------- Dark theme ---------- */
+
+/* dark-Banner.jpg (1920x762) is the same scene on the page colour, at 2.52:1 */
+[data-theme="dark"] .dp-hero {
+  min-height: max(320px, calc(100vw / 2.52));
+  background-color: var(--bg);
+  background-image: var(--dp-hero-bg-dark);
+}
+
+[data-theme="dark"] .dp-hero__cta .btn--primary {
+  background: var(--raised);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .dp-hero__cta .btn--primary:hover {
+  background: var(--green);
+}
+
+[data-theme="dark"] .dp-hero__cta .btn--ghost {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .dp-hero__cta .btn--ghost:hover {
+  border-color: var(--green);
+  color: var(--green-bright);
+}
+
+[data-theme="dark"] .dp-section--alt {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .dp-section--control {
+  background: #1d232f;
+}
+
+/* boxes that already sit on the dark page get a hairline so they don't melt into it */
+[data-theme="dark"] .dp-earn__panel,
+[data-theme="dark"] .dp-rel {
+  border: 1px solid var(--line);
+}
+
+[data-theme="dark"] .dp-card,
+[data-theme="dark"] .dp-paid__card,
+[data-theme="dark"] .dp-control__card,
+[data-theme="dark"] .dp-check__card {
+  background: var(--card);
+}
+
+[data-theme="dark"] .dp-control__card:first-child,
+[data-theme="dark"] .dp-quote.is-featured {
+  background: var(--raised);
+}
+
+[data-theme="dark"] .dp-card:first-child,
+[data-theme="dark"] .dp-control__card:first-child {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .dp-paid__card:not(:first-child) .dp-paid__num {
+  background: var(--raised);
+}
+
+[data-theme="dark"] .dp-card__status {
+  color: var(--green-bright);
+}
+
+/* the checklist keeps its pastel art panels; only the card edge darkens */
+[data-theme="dark"] .dp-check__card {
+  border-color: #3a3f49;
+}
+
+[data-theme="dark"] .dp-note {
+  background: var(--card);
+  border-color: #3a3f49;
+}
+
+/* the control and payment icons are dark navy: flatten them to white.
+   Each row's first card is the highlighted one and its icon is already green. */
+[data-theme="dark"] .dp-control__card:not(:first-child) .dp-control__img,
+[data-theme="dark"] .dp-paid__card:not(:first-child) .dp-paid__img {
+  filter: brightness(0) invert(1);
+}
+
 /* ---------- Breakpoints ---------- */
 
 /* large desktops / TVs: keep content from feeling tiny */
@@ -676,6 +759,12 @@
     min-height: 0;
     background-image: linear-gradient(rgba(253, 252, 250, 0.88), rgba(253, 252, 250, 0.88)),
       var(--dp-hero-bg);
+  }
+
+  [data-theme="dark"] .dp-hero {
+    min-height: 0;
+    background-image: linear-gradient(rgba(22, 28, 40, 0.88), rgba(22, 28, 40, 0.88)),
+      var(--dp-hero-bg-dark);
   }
 
   .dp-hero__copy {

@@ -95,6 +95,41 @@
   transform: rotate(180deg);
 }
 
+[data-theme="dark"] .faq-item {
+  background: var(--card);
+}
+
+[data-theme="dark"] .faq-item:not(.is-open) {
+  border-color: #3a3f49;
+}
+
+[data-theme="dark"] .faq-item__icon {
+  background: #373c47;
+}
+
+/* the icon PNGs are dark navy: flatten them to white on the dark circle */
+[data-theme="dark"] .faq-item__icon img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .faq__help span,
+[data-theme="dark"] .faq-item__trigger {
+  color: var(--text);
+}
+
+[data-theme="dark"] .faq-item__chevron {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .faq__help .btn {
+  background: var(--raised);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .faq__help .btn:hover {
+  background: var(--green);
+}
+
 /* 0fr -> 1fr gives a height animation without measuring the content */
 .faq-item__panel {
   display: grid;

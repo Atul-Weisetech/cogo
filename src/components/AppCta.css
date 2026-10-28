@@ -91,6 +91,23 @@
   color: #5b4f8a;
 }
 
+[data-theme="dark"] .app-cta__field {
+  background: #131822;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+[data-theme="dark"] .app-cta__field input {
+  color: var(--text);
+}
+
+[data-theme="dark"] .app-cta__field input::placeholder {
+  color: var(--text-faint);
+}
+
+[data-theme="dark"] .app-cta__note {
+  color: var(--text-muted);
+}
+
 /* ---------- Store badges ---------- */
 
 .store-badges {
@@ -113,6 +130,12 @@
 .store-badge:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 22px rgba(14, 20, 32, 0.28);
+}
+
+/* a hairline keeps the black badges from melting into the dark page */
+[data-theme="dark"] .store-badge {
+  outline: 1px solid rgba(255, 255, 255, 0.22);
+  outline-offset: -1px;
 }
 
 .store-badge__glyph {

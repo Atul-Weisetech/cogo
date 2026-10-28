@@ -17,6 +17,12 @@
       rel="stylesheet"
     />
     <title>Cogo — Move Smarter. Ride Together.</title>
+    <!-- apply the saved theme before first paint so dark mode doesn't flash light -->
+    <script>
+      try {
+        if (localStorage.getItem("cogo-theme") === "dark") document.documentElement.dataset.theme = "dark";
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

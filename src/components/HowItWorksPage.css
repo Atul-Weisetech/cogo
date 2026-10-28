@@ -390,6 +390,54 @@
   scroll-margin-top: 90px;
 }
 
+/* ---------- Dark theme ---------- */
+
+[data-theme="dark"] .hp-hero__cta .hp-cta--primary {
+  background: rgba(76, 168, 92, 0.16);
+  color: var(--green-bright);
+}
+
+[data-theme="dark"] .hp-hero__cta .hp-cta--primary:hover {
+  background: rgba(76, 168, 92, 0.26);
+}
+
+[data-theme="dark"] .hp-hero__cta .hp-cta--ghost:hover {
+  background: var(--raised);
+}
+
+[data-theme="dark"] .hp-step {
+  border-top-color: var(--line);
+}
+
+[data-theme="dark"] .hp-step__num {
+  background: var(--green-soft-2);
+}
+
+[data-theme="dark"] .hp-chip {
+  background: var(--card);
+  border-color: #3a3f49;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .hp-chip__icon {
+  background: #373c47;
+}
+
+[data-theme="dark"] .hp-card {
+  background: var(--card);
+}
+
+/* the icons are dark navy: flatten them to white. The first "during" card's
+   timer is already brand green, so it keeps its colour. */
+[data-theme="dark"] .hp-card__img,
+[data-theme="dark"] .hp-hero__cta .hp-cta--ghost img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .hp-cards:not(.hp-cards--dark) .hp-card:first-child .hp-card__img {
+  filter: none;
+}
+
 /* ---------- Breakpoints ---------- */
 
 /* Tablet: stack hero and journeys into a single column */

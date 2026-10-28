@@ -66,6 +66,19 @@
   color: #fff;
 }
 
+[data-theme="dark"] .wm__title {
+  color: var(--text);
+}
+
+[data-theme="dark"] .wm__text {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .wm__cta {
+  background: var(--raised);
+  box-shadow: none;
+}
+
 @media (max-width: 880px) {
   .wm {
     grid-template-columns: minmax(0, 1fr);

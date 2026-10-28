@@ -2,6 +2,26 @@
   background: #fff url("../assets/images/mapbg.png") center / cover no-repeat;
 }
 
+/* the street map is a light image: invert it (hue-rotate keeps the pins green)
+   and screen it onto a deep navy so only the lines show through */
+[data-theme="dark"] .cities-section {
+  position: relative;
+  isolation: isolate;
+  background: #0e1623;
+}
+
+[data-theme="dark"] .cities-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../assets/images/mapbg.png") center / cover no-repeat;
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 .cities {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -70,6 +90,11 @@
 
 .city-chip--more {
   background: #cdeed8;
+}
+
+[data-theme="dark"] .city-chip:not(.city-chip--live) {
+  background: var(--raised);
+  color: var(--text);
 }
 
 /* ---------- Map ---------- */

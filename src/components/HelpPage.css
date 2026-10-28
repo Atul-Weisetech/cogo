@@ -284,6 +284,47 @@
   color: var(--text-muted);
 }
 
+/* ---------- Dark theme ---------- */
+
+/* the backdrop is a shade lighter than the page so its curved edge still
+   reads, but darker than the cards that sit on it */
+[data-theme="dark"] .hc-top::before {
+  background: linear-gradient(var(--bg), #1d232f 25%);
+}
+
+[data-theme="dark"] .hc-card,
+[data-theme="dark"] .hc-quote {
+  background: var(--card);
+}
+
+[data-theme="dark"] .hc-card {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* "what changes": the mint card becomes a green-tinted dark card, and the
+   solid offset shadow turns green so it still shows on the dark page */
+[data-theme="dark"] .hc-card--green {
+  background: #27373a;
+  border-color: #3a3f49;
+  box-shadow: 4px 4px 0 var(--green-dark);
+}
+
+[data-theme="dark"] .hc-note {
+  background: var(--card);
+  border-color: #3a3f49;
+}
+
+[data-theme="dark"] .hc-quote__mark {
+  color: #4a505c;
+}
+
+/* the step and privacy icons are dark navy: flatten them to white
+   (the note's ID icon is already green and stays as is) */
+[data-theme="dark"] .hc-card__icon,
+[data-theme="dark"] .hc-privacy__icon {
+  filter: brightness(0) invert(1);
+}
+
 /* ---------- Breakpoints ---------- */
 
 /* Large desktops / TVs: give the content blocks more room */

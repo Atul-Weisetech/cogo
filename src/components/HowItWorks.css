@@ -22,6 +22,11 @@
   color: #fff;
 }
 
+/* in dark mode the band sits on the page colour, leaving the banner and corners to define it */
+[data-theme="dark"] .hiw__band {
+  background-color: var(--bg);
+}
+
 /* ---------- Brand corner shapes ---------- */
 
 /* rotated rounded squares, tucked into two corners and clipped by the band */

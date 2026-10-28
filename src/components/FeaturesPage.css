@@ -52,7 +52,15 @@
 }
 
 .fp-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 24px;
+}
+
+/* outlined in the page's text colour, as in the design (white in dark mode) */
+.fp-hero__cta .btn--ghost {
+  border-color: var(--navy);
 }
 
 /* ---------- Before the ride ---------- */
@@ -428,6 +436,61 @@
   color: var(--navy);
 }
 
+/* ---------- Dark theme ---------- */
+
+/* women-banner-dark.jpg matches the light banner's size and layout, so it
+   swaps in place (the phone layout's ::after reuses it too) */
+[data-theme="dark"] .fp-hero {
+  background-color: var(--bg);
+  background-image: var(--fp-hero-bg-dark);
+}
+
+[data-theme="dark"] .fp-hero::after {
+  background-image: var(--fp-hero-bg-dark);
+}
+
+/* the dark wave is transparent with faint green lines, so it sits on the
+   page as-is; multiply would hide it */
+[data-theme="dark"] .fp-before {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .fp-before::before {
+  background-image: var(--fp-wave-dark);
+  mix-blend-mode: normal;
+}
+
+[data-theme="dark"] .fp-card,
+[data-theme="dark"] .fp-after,
+[data-theme="dark"] .fp-tile,
+[data-theme="dark"] .fp-grid--soft .fp-tile {
+  background: var(--card);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .fp-strip,
+[data-theme="dark"] .fp-grid--tips .fp-tile {
+  background: var(--card);
+  border-color: #3a3f49;
+}
+
+[data-theme="dark"] .fp-after__icon {
+  background: var(--green-soft-2);
+}
+
+[data-theme="dark"] .fp-tile__icon {
+  color: var(--green-bright);
+}
+
+/* every icon on this page is a dark navy PNG: flatten them to white */
+[data-theme="dark"] .fp-card__icon,
+[data-theme="dark"] .fp-after__icon img,
+[data-theme="dark"] .fp-tile__img,
+[data-theme="dark"] .fp-strip__icon,
+[data-theme="dark"] .fp-family__pin {
+  filter: brightness(0) invert(1);
+}
+
 /* ---------- Breakpoints ---------- */
 
 /* Large desktops / TVs: give the content blocks more room */
@@ -545,6 +608,10 @@
 
   .fp-hero .section-lead {
     margin-inline: auto;
+  }
+
+  .fp-hero__cta {
+    justify-content: center;
   }
 
   .fp-trio,

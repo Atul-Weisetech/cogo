@@ -12,14 +12,25 @@ export const FEATURES_PAGE = "#/features";
 
 export const HELP_PAGE = "#/help";
 
+/* Primary nav. An item with `children` renders as a dropdown. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
-  { label: "Home", href: "#home" },
   { label: "How it works", href: HOW_PAGE },
-  { label: "Drive with COGO", href: DRIVE_PAGE },
-  { label: "Features", href: FEATURES_PAGE },
-  { label: "Help / FAQ", href: HELP_PAGE },
-  { label: "Contact", href: "#contact" },
+  { label: "Offer a Ride", href: DRIVE_PAGE },
+  { label: "Safety", href: FEATURES_PAGE },
+  {
+    label: "Features",
+    children: [
+      { label: "Women Mode", href: HELP_PAGE },
+      { label: "Family tracking & SOS", href: FEATURES_PAGE },
+      { label: "Fair, upfront pricing", href: "#why-cogo" },
+      { label: "Available cities", href: "#cities" },
+    ],
+  },
+  { label: "Pricing", href: "#why-cogo" },
+  { label: "Help", href: HELP_PAGE },
 ];
+
+export const navCta = { label: "Get the app", href: "#app" };
 
 export const hero = {
   titleTop: "Move Smarter.",
@@ -282,12 +293,13 @@ export const womenMode = {
 /* "Features" page (#/features): the safety story, before / during / after a ride. Copy is placeholder pending final Figma text. */
 export const featuresPage = {
   hero: {
-    title: "Women",
-    highlight: "Mode",
-    lead:
-      "Rides matched only with women whose identity has been checked by our safety team - as riders and as drivers.",
-    cta: "Start Offering",
-    href: "#before-ride",
+    title: "Safety you can see,",
+    highlight: "before and during every ride.",
+    lead: "Verification, live tracking, SOS and masked contact — built into every screen, not hidden in a menu.",
+    cta: [
+      { label: "Get the app", href: "#app", variant: "dark" },
+      { label: "Learn about Women Mode", href: HELP_PAGE, variant: "ghost" },
+    ],
   },
   before: {
     id: "before-ride",

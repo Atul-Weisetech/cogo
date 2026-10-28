@@ -3,7 +3,9 @@ import Reveal from "./common/Reveal.jsx";
 import Faq from "./Faq.jsx";
 import { featuresPage } from "../data/content.js";
 import womenBanner from "../assets/images/women-banner.jpg";
+import womenBannerDark from "../assets/images/women-banner-dark.jpg";
 import safetyBanner from "../assets/images/safety ride ban.jpg";
+import safetyBannerDark from "../assets/images/safety ride ban dark.png";
 import phoneRide from "../assets/images/phone ride.png";
 import rideBg from "../assets/images/ride bg banner.jpg";
 import locationFamily from "../assets/images/location family.png";
@@ -66,20 +68,32 @@ function Heading({ data, className = "" }) {
 
 function Hero({ data }) {
   return (
-    <section className="fp-hero" style={{ "--fp-hero-bg": `url("${womenBanner}")` }}>
+    <section
+      className="fp-hero"
+      style={{
+        "--fp-hero-bg": `url("${womenBanner}")`,
+        "--fp-hero-bg-dark": `url("${womenBannerDark}")`,
+      }}
+    >
       <div className="container fp-hero__grid">
         <div className="fp-hero__copy">
           <Reveal as="h1" className="fp-hero__title">
-            {data.title} <span className="text-green">{data.highlight}</span>
+            {data.title}
+            <br />
+            <span className="text-green">{data.highlight}</span>
           </Reveal>
           <Reveal as="p" className="section-lead" delay={90}>
             {data.lead}
           </Reveal>
+          {/* both buttons lead off this page (home app section, Women Mode page),
+              so they are plain links rather than in-page scrolls */}
           <Reveal className="fp-hero__cta" delay={160}>
-            <a href={data.href} className="btn btn--sm btn--dark" onClick={scrollTo(data.href)}>
-              {data.cta}
-              <Icon name="arrowRight" size={18} />
-            </a>
+            {data.cta.map((b) => (
+              <a key={b.label} href={b.href} className={`btn btn--sm btn--${b.variant}`}>
+                {b.label}
+                <Icon name="arrowRight" size={18} />
+              </a>
+            ))}
           </Reveal>
         </div>
       </div>
@@ -92,7 +106,10 @@ function Before({ data }) {
     <section
       id={data.id}
       className="section--tight fp-section fp-before"
-      style={{ "--fp-wave": `url("${safetyBanner}")` }}
+      style={{
+        "--fp-wave": `url("${safetyBanner}")`,
+        "--fp-wave-dark": `url("${safetyBannerDark}")`,
+      }}
     >
       <div className="container">
         <Heading data={data} />
