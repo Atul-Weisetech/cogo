@@ -16,9 +16,10 @@ import DrivePage from "./components/DrivePage.jsx";
 import FeaturesPage from "./components/FeaturesPage.jsx";
 import HelpPage from "./components/HelpPage.jsx";
 import PricingPage from "./components/PricingPage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE } from "./data/content.js";
+import CommutePage from "./components/CommutePage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
@@ -26,6 +27,7 @@ const getPage = () => {
   if (hash === FEATURES_PAGE) return "features";
   if (hash === HELP_PAGE) return "help";
   if (hash === PRICING_PAGE) return "pricing";
+  if (hash === COMMUTE_PAGE) return "commute";
   return "home";
 };
 
@@ -67,6 +69,8 @@ export default function App() {
           <HelpPage />
         ) : page === "pricing" ? (
           <PricingPage />
+        ) : page === "commute" ? (
+          <CommutePage />
         ) : (
           <>
             <Hero />

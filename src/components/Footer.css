@@ -9,7 +9,7 @@
 .footer__grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1.1fr 0.9fr;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
   gap: clamp(24px, 3.5vw, 48px);
   padding-bottom: clamp(32px, 4vw, 48px);
 }
@@ -75,25 +75,86 @@
 /* ---------- Bottom bar ---------- */
 
 .footer__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
-  text-align: center;
   color: #fff;
   font-size: 12px;
 }
 
+.footer__list a {
+  overflow-wrap: anywhere;
+}
+
+/* Tablet: brand on its own row, the four link columns below it. */
 @media (max-width: 940px) {
   .footer__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .footer__brand {
     grid-column: 1 / -1;
   }
+
+  .footer__about {
+    max-width: 52ch;
+  }
 }
 
-@media (max-width: 520px) {
+/* Mobile: link columns as a 2 x 2 grid, bottom bar stacked and centred. */
+@media (max-width: 640px) {
+  .footer {
+    padding-top: 40px;
+  }
+
   .footer__grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+    padding-bottom: 28px;
+  }
+
+  .footer__heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .footer__list {
+    gap: 4px;
+  }
+
+  .footer__list a {
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 13px;
+  }
+
+  .footer__bar {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .footer__socials {
+    gap: 24px;
+  }
+
+  .footer__socials a {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Very narrow phones: keep two columns but tighten the gutter. */
+@media (max-width: 360px) {
+  .footer__grid {
+    column-gap: 14px;
+  }
+
+  .footer__list a {
+    font-size: 12.5px;
   }
 }

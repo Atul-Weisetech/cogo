@@ -72,74 +72,6 @@
   color: var(--green);
 }
 
-/* ---------- Dropdown (Features) ---------- */
-
-.nav__dropdown {
-  position: relative;
-}
-
-.nav__link--btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-}
-
-.nav__caret {
-  transition: transform 0.2s ease;
-}
-
-[aria-expanded="true"] > .nav__caret {
-  transform: rotate(180deg);
-}
-
-.nav__menu {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  z-index: 5;
-  min-width: 210px;
-  padding: 6px;
-  border-radius: var(--r-md);
-  background: var(--card);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-lg);
-  transform: translateX(-50%);
-  animation: menu-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes menu-in {
-  from {
-    opacity: 0;
-    margin-top: -6px;
-  }
-}
-
-.nav__menu a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: var(--r-sm);
-  font-size: 13px;
-  font-weight: 500;
-  text-align: left;
-  color: var(--navy);
-}
-
-.nav__menu a:hover {
-  background: var(--surface);
-}
-
-.nav__menu .is-active {
-  color: var(--green);
-}
-
-[data-theme="dark"] .nav__menu a:hover {
-  background: var(--raised);
-}
-
 /* ---------- Right-hand tools: theme switch, CTA ---------- */
 
 .nav__tools {
@@ -268,27 +200,6 @@
 
 .nav__sheet-links svg {
   color: var(--text-faint);
-}
-
-.nav__sheet-group {
-  display: grid;
-}
-
-.nav__sheet-label {
-  padding: 13px 14px 4px;
-  font-family: var(--font-head);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.nav__sheet-links .nav__sheet-sub {
-  padding-block: 10px;
-  padding-left: 26px;
-  font-size: 14px;
-  font-weight: 500;
 }
 
 .nav__sheet-tools {

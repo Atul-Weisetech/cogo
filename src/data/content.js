@@ -14,20 +14,15 @@ export const HELP_PAGE = "#/help";
 
 export const PRICING_PAGE = "#/pricing";
 
-/* Primary nav. An item with `children` renders as a dropdown. Copy and targets are placeholders pending final Figma links. */
+/* "Features" overview page. #/features is the Safety page, so this one gets its own hash. */
+export const COMMUTE_PAGE = "#/commute-features";
+
+/* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
   { label: "Offer a Ride", href: DRIVE_PAGE },
   { label: "Safety", href: FEATURES_PAGE },
-  {
-    label: "Features",
-    children: [
-      { label: "Women Mode", href: HELP_PAGE },
-      { label: "Family tracking & SOS", href: FEATURES_PAGE },
-      { label: "Fair, upfront pricing", href: PRICING_PAGE },
-      { label: "Available cities", href: "#cities" },
-    ],
-  },
+  { label: "Features", href: COMMUTE_PAGE },
   { label: "Pricing", href: PRICING_PAGE },
   { label: "Help", href: HELP_PAGE },
 ];
@@ -533,6 +528,86 @@ export const featuresPage = {
 };
 
 /* "Help / FAQ" page (#/help): how Women Mode verification works. */
+/* "Features" overview page (#/commute-features). The tile and lead copy was read off a
+   low-resolution Figma screenshot, so check it against the final design. */
+export const commutePage = {
+  hero: {
+    title: "Features built for",
+    highlight: "real commutes",
+    lead:
+      "Cogo is a community of people already making the trip. Find a ride nearby, travel with a private group, post your own trip or set a routine once. You always see the price first and you always confirm.",
+    chips: [
+      { label: "Nearby", href: "#nearby" },
+      { label: "Ride Groups", href: "#groups" },
+      { label: "Marketplace", href: "#marketplace" },
+      { label: "Smart Routine", href: "#routine" },
+    ],
+  },
+  nearby: {
+    id: "nearby",
+    title: "Rides within 5 km,",
+    highlight: "right now.",
+    lead: "See who is heading your way and the suggested contribution before you send a request. Request expires in 45 seconds if nobody accepts.",
+    tiles: [
+      { icon: "km", text: "Within 5 km" },
+      { icon: "fixed", text: "Fixed, shown price before request" },
+      { icon: "sec", text: "Request expires in 45 seconds" },
+    ],
+  },
+  groups: {
+    id: "groups",
+    title: "Private circles for your",
+    highlight: "office, campus or society.",
+    lead: "Ride only with people from your own circle. Invite colleagues, classmates or neighbours and keep every trip inside the group.",
+    tiles: [
+      { icon: "km", text: "Verified circle" },
+      { icon: "fixed", text: "Fixed, shown price before request" },
+      { icon: "sec", text: "Request expires in 45 seconds" },
+    ],
+    cta: { label: "COGO for Groups & Companies", href: "#contact" },
+  },
+  marketplace: {
+    id: "marketplace",
+    title: "Post your trip.",
+    highlight: "Let verified drivers offer.",
+    lead: "Post your route once and let verified drivers offer. Compare offers, price and rating, then pick the one you like.",
+    tiles: [
+      { icon: "km", text: "Within 5 km" },
+      { icon: "fixed", text: "Fixed, shown price before request" },
+      { icon: "sec", text: "Request expires in 45 seconds" },
+    ],
+    callout: "Great for weekend Ahmedabad ↔ Mumbai or college-home runs",
+  },
+  routine: {
+    id: "routine",
+    title: "Set it once.",
+    highlight: "Confirm each time.",
+    lead: "COGO notices your commute pattern, like Home ↔ Office, and suggests rides at the right time. Nothing is booked or published without your say.",
+    tiles: [
+      { icon: "km", text: "Instant fix" },
+      { icon: "fixed", text: "Fixed, shown price before request" },
+      { icon: "sec", text: "Request expires in 45 seconds" },
+    ],
+  },
+  included: {
+    title: "Also",
+    highlight: "included",
+    items: [
+      { icon: "wallet", label: "Wallet" },
+      { icon: "split", label: "Split fare" },
+      { icon: "coupon", label: "Coupons" },
+      { icon: "subscription", label: "Subscriptions (Rider Plus, Driver Pro)" },
+      { icon: "multistop", label: "Multi-stop rides" },
+      { icon: "join", label: "Join a ride already on the way" },
+      { icon: "receipt", label: "Digital receipts" },
+    ],
+  },
+  faq: {
+    title: "Feature",
+    highlight: "questions",
+  },
+};
+
 export const helpPage = {
   hero: {
     title: "Women Mode.",
@@ -649,23 +724,48 @@ export const faqs = [
 export const footer = {
   about:
     "Share a ride with verified people going your way. Pay a fair contribution, not a cab fare or offer your empty seats and split the journey.",
-  links: [
-    [
-      { label: "Home", href: "#home" },
-      { label: "How it works", href: HOW_PAGE },
-      { label: "Drive with COGO", href: DRIVE_PAGE },
-      { label: "Features", href: FEATURES_PAGE },
-      { label: "Pricing", href: PRICING_PAGE },
-      { label: "Help / FAQ", href: HELP_PAGE },
-      { label: "Contact", href: "#contact" },
-    ],
-    [
-      { label: "Customer Terms - Bike Taxi", href: "#contact" },
-      { label: "Customer Terms - Cabs and Auto", href: "#contact" },
-      { label: "Corporate Affairs", href: "#contact" },
-      { label: "Captain Terms - Bike Taxi", href: "#contact" },
-      { label: "Captain Terms - Cabs and Auto", href: "#contact" },
-    ],
+  columns: [
+    {
+      title: "Company",
+      items: [
+        { label: "About", href: "#why-cogo" },
+        { label: "Blog", href: "#contact" },
+        { label: "Careers", href: "#contact" },
+        { label: "Press kit", href: "#contact" },
+        { label: "Contact", href: "#contact" },
+      ],
+    },
+    {
+      title: "Legal",
+      items: [
+        { label: "Terms of Service", href: "#contact" },
+        { label: "Privacy Policy", href: "#contact" },
+        { label: "Cancellation & Refund", href: "#contact" },
+        { label: "Grievance Officer", href: "#contact" },
+        { label: "Cookie Notice", href: "#contact" },
+      ],
+    },
+    {
+      title: "Products",
+      items: [
+        { label: "How it works", href: HOW_PAGE },
+        { label: "Take a Ride", href: "#home" },
+        { label: "Offer a Ride", href: DRIVE_PAGE },
+        { label: "Features", href: COMMUTE_PAGE },
+        { label: "Pricing", href: PRICING_PAGE },
+        { label: "Download", href: "#app" },
+      ],
+    },
+    {
+      title: "Trust",
+      items: [
+        { label: "Safety", href: FEATURES_PAGE },
+        { label: "Women Mode", href: HELP_PAGE },
+        { label: "Family Tracking", href: FEATURES_PAGE },
+        { label: "Community Guidelines", href: "#contact" },
+        { label: "Verification", href: FEATURES_PAGE },
+      ],
+    },
   ],
   socials: [
     { icon: "facebook", label: "Facebook" },
