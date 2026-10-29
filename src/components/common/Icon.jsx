@@ -93,6 +93,38 @@ const paths = {
       <path d="M5 20c.6-3.6 3.4-5.6 7-5.6s6.4 2 7 5.6" {...S} />
     </>
   ),
+  shieldCheck: (
+    <>
+      <path d="M12 3 5 6v5.6c0 4 2.8 7.5 7 9.4 4.2-1.9 7-5.4 7-9.4V6l-7-3Z" fill="currentColor" />
+      <path d="m9 12 2.2 2.2L15.4 10" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </>
+  ),
+  shieldLock: (
+    <>
+      <path d="M12 3 5 6v5.6c0 4 2.8 7.5 7 9.4 4.2-1.9 7-5.4 7-9.4V6l-7-3Z" fill="currentColor" />
+      <rect x="9" y="11" width="6" height="5" rx="1" fill="#fff" />
+      <path d="M10.2 11V9.8a1.8 1.8 0 0 1 3.6 0V11" stroke="#fff" strokeWidth="1.5" fill="none" />
+    </>
+  ),
+  sprout: (
+    <>
+      <path d="M12 21v-8M12 13c0-3.5-2.4-5.5-6-5.5 0 3.5 2.4 5.5 6 5.5ZM12 15c0-3 2-5 5.5-5 0 3-2 5-5.5 5Z" {...S} />
+    </>
+  ),
+  users: (
+    <>
+      <circle cx="8.5" cy="8.5" r="2.8" {...S} />
+      <circle cx="16.5" cy="9.5" r="2.3" {...S} />
+      <path d="M3 19c.5-3 2.7-4.7 5.5-4.7S13.5 16 14 19M15 14.5c2.7-.4 5 1 5.5 4" {...S} />
+    </>
+  ),
+  rocket: (
+    <>
+      <path d="M12 3c3.5 2 5 5.5 4.5 10H7.5C7 8.5 8.5 5 12 3Z" {...S} />
+      <circle cx="12" cy="9" r="1.5" {...S} />
+      <path d="m7.5 13-2.5 3.5 3-.5M16.5 13l2.5 3.5-3-.5M10.5 17c.3 1.5.8 2.5 1.5 3.5.7-1 1.2-2 1.5-3.5" {...S} />
+    </>
+  ),
   share: (
     <>
       <circle cx="6.5" cy="12" r="2.4" {...S} />

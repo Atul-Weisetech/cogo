@@ -19,6 +19,8 @@ export const COMMUTE_PAGE = "#/commute-features";
 
 export const FAMILY_PAGE = "#/family-tracking";
 
+export const ABOUT_PAGE = "#/about";
+
 /* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
@@ -558,6 +560,69 @@ export const familyTrackingPage = {
   },
 };
 
+/* "About" page (#/about). The Figma screenshot was too low-res to read the small copy and
+   the team names/roles are Figma placeholders, so check all of it against the final design. */
+export const aboutPage = {
+  hero: {
+    title: "We're building India's",
+    highlight: "most trusted way to share a ride.",
+    lead: "People going the same way. Fewer empty seats. Cheaper rides. Happier commutes.",
+    cta: { label: "Get the app", href: "#app" },
+  },
+  mission: {
+    title: "Our",
+    highlight: "Mission",
+    subtitle: "More people together, a better tomorrow.",
+    text: "We make everyday travel more affordable, convenient and sustainable by helping people share rides. Fewer cars on the road, cleaner air and a safer, more social way to commute — together.",
+    cta: { label: "Read more", target: "#about-problem" },
+  },
+  problem: {
+    title: "The",
+    highlight: "problem",
+    items: [
+      { image: "seat", title: "Empty seats", text: "Most cars carry one person while the other seats go unused." },
+      { image: "car", title: "Growing congestion", text: "More vehicles mean longer commutes and busier cities." },
+      { image: "cost", title: "Rising travel costs", text: "Solo rides are getting too expensive for many." },
+    ],
+  },
+  principles: {
+    title: "Our",
+    highlight: "principles",
+    items: [
+      { image: "trust", title: "Trust is a design material", text: "We design for verifiability, transparency and accountability." },
+      { image: "fairness", title: "Fairness over surge", text: "Predictable, transparent pricing for everyone." },
+      { icon: "shieldCheck", title: "Safety first", text: "Every ride is verified, tracked and built around rider safety." },
+      { icon: "shieldLock", title: "Privacy by default", text: "Your data is yours. We collect only what we need." },
+    ],
+  },
+  journey: {
+    title: "Our",
+    highlight: "journey",
+    steps: [
+      { icon: "sprout", color: "#1d7bff", title: "2026 Founded", text: "A small team with a big belief in shared mobility." },
+      { icon: "pin", color: "#ff7a00", title: "Pilot in Ahmedabad–Gandhinagar", text: "Launched with early riders and drivers to validate and learn." },
+      { icon: "users", color: "#4ca85c", title: "Expanded and improved", text: "Added more features, fine-tuned safety and grew our community." },
+      { icon: "rocket", color: "#7c3aed", title: "Onwards", text: "Bringing shared rides to more cities across India." },
+    ],
+  },
+  team: {
+    title: "Our",
+    highlight: "Team",
+    lead: "A diverse team building a brighter way.",
+    members: [
+      { name: "Aarav", role: "Co-founder & CEO" },
+      { name: "Kimberly Branch", role: "Marketing" },
+      { name: "Orlando Diggs", role: "Customer success lead" },
+      { name: "Jessica Dobrev", role: "Specialist support" },
+    ],
+  },
+  reach: [
+    { image: "press", title: "Press Kit", text: "Logos, product screenshots, key facts and our story.", cta: "Download press kit", href: "#contact" },
+    { image: "careers", title: "Careers", text: "Help us make shared mobility simple, safe and accessible across India.", cta: "See open roles", href: "#contact" },
+    { image: "contact", title: "Contact", text: "For media, partnerships or general enquiries, we'd love to hear from you.", cta: "Contact us", href: "#contact" },
+  ],
+};
+
 /* "Help / FAQ" page (#/help): how Women Mode verification works. */
 /* "Features" overview page (#/commute-features). The tile and lead copy was read off a
    low-resolution Figma screenshot, so check it against the final design. */
@@ -759,7 +824,7 @@ export const footer = {
     {
       title: "Company",
       items: [
-        { label: "About", href: "#why-cogo" },
+        { label: "About", href: ABOUT_PAGE },
         { label: "Blog", href: "#contact" },
         { label: "Careers", href: "#contact" },
         { label: "Press kit", href: "#contact" },

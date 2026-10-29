@@ -18,9 +18,10 @@ import HelpPage from "./components/HelpPage.jsx";
 import PricingPage from "./components/PricingPage.jsx";
 import CommutePage from "./components/CommutePage.jsx";
 import FamilyTrackingPage from "./components/FamilyTrackingPage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE } from "./data/content.js";
+import AboutPage from "./components/AboutPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE, ABOUT_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/about", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
@@ -30,6 +31,7 @@ const getPage = () => {
   if (hash === PRICING_PAGE) return "pricing";
   if (hash === COMMUTE_PAGE) return "commute";
   if (hash === FAMILY_PAGE) return "family";
+  if (hash === ABOUT_PAGE) return "about";
   return "home";
 };
 
@@ -75,6 +77,8 @@ export default function App() {
           <CommutePage />
         ) : page === "family" ? (
           <FamilyTrackingPage />
+        ) : page === "about" ? (
+          <AboutPage />
         ) : (
           <>
             <Hero />
