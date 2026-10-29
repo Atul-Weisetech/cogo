@@ -17,6 +17,8 @@ export const PRICING_PAGE = "#/pricing";
 /* "Features" overview page. #/features is the Safety page, so this one gets its own hash. */
 export const COMMUTE_PAGE = "#/commute-features";
 
+export const FAMILY_PAGE = "#/family-tracking";
+
 /* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
@@ -527,6 +529,35 @@ export const featuresPage = {
   },
 };
 
+/* "Family Tracking" page (#/family-tracking). The "One link" body copy is Figma
+   placeholder text, so swap it for the final wording. */
+export const familyTrackingPage = {
+  hero: {
+    title: "Know they're",
+    highlight: "on their way.",
+    lead: "Riders can share a live link. Open it in any browser — no app, no account.",
+    cta: { label: "Get the app", href: "#app" },
+  },
+  share: {
+    title: "Share your ride",
+    highlight: "with family",
+    cards: [
+      { icon: "map", title: "Live Map", text: "Your route, live in the real time." },
+      { icon: "driver", title: "Driver & Vehicle", text: "Know who's driving and what to look for." },
+      { icon: "expires", title: "Expires on arrival", text: "The link automatically expires when you reach." },
+    ],
+  },
+  link: {
+    title: "One link,",
+    highlight: "nothing to install",
+    text: [
+      "When it comes to barbequing, there are two main schools of thought for the techniques that you can use. Freshly scrambled eggs with applewood smoked bacon - are amazing!",
+      "When it comes to barbequing, there are two main schools of thought for the techniques that you can use.",
+    ],
+    cta: { label: "Know more", href: FEATURES_PAGE },
+  },
+};
+
 /* "Help / FAQ" page (#/help): how Women Mode verification works. */
 /* "Features" overview page (#/commute-features). The tile and lead copy was read off a
    low-resolution Figma screenshot, so check it against the final design. */
@@ -761,7 +792,7 @@ export const footer = {
       items: [
         { label: "Safety", href: FEATURES_PAGE },
         { label: "Women Mode", href: HELP_PAGE },
-        { label: "Family Tracking", href: FEATURES_PAGE },
+        { label: "Family Tracking", href: FAMILY_PAGE },
         { label: "Community Guidelines", href: "#contact" },
         { label: "Verification", href: FEATURES_PAGE },
       ],

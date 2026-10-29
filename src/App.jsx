@@ -17,9 +17,10 @@ import FeaturesPage from "./components/FeaturesPage.jsx";
 import HelpPage from "./components/HelpPage.jsx";
 import PricingPage from "./components/PricingPage.jsx";
 import CommutePage from "./components/CommutePage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE } from "./data/content.js";
+import FamilyTrackingPage from "./components/FamilyTrackingPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
@@ -28,6 +29,7 @@ const getPage = () => {
   if (hash === HELP_PAGE) return "help";
   if (hash === PRICING_PAGE) return "pricing";
   if (hash === COMMUTE_PAGE) return "commute";
+  if (hash === FAMILY_PAGE) return "family";
   return "home";
 };
 
@@ -71,6 +73,8 @@ export default function App() {
           <PricingPage />
         ) : page === "commute" ? (
           <CommutePage />
+        ) : page === "family" ? (
+          <FamilyTrackingPage />
         ) : (
           <>
             <Hero />

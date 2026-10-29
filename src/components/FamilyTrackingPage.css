@@ -1,0 +1,196 @@
+/* ---------- Hero ---------- */
+
+.ft-hero {
+  --nav-h: calc(88px + env(safe-area-inset-top, 0px));
+  margin-top: calc(-1 * var(--nav-h));
+  padding-top: calc(var(--nav-h) + clamp(16px, 3vw, 40px));
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+.ft-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.ft-hero__title {
+  max-width: 11ch;
+  font-size: clamp(30px, 3.6vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--navy);
+}
+
+.ft-hero__lead {
+  max-width: 40ch;
+  margin: 14px 0 22px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.ft-hero__art img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin-inline: auto;
+}
+
+/* ---------- Share cards ---------- */
+
+/* the share + link sections sit on one large pale ellipse that rises behind the
+   cards and runs down to the footer */
+.ft-body {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ft-body::before {
+  content: "";
+  position: absolute;
+  inset: clamp(120px, 17.5vw, 260px) -25% 0;
+  z-index: -1;
+  border-radius: 50% 50% 0 0 / min(31vw, 450px) min(31vw, 450px) 0 0;
+  background: var(--surface);
+}
+
+.ft-share__title {
+  margin-bottom: clamp(24px, 3vw, 40px);
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(24px, 2.5vw, 36px);
+}
+
+.ft-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.3vw, 18px);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.ft-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(24px, 2.4vw, 34px) 18px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #eef9f3 0%, var(--green-soft) 100%);
+  border: 1px solid rgba(76, 168, 92, 0.4);
+  box-shadow: 0 4px 14px rgba(76, 168, 92, 0.08);
+  text-align: center;
+}
+
+.ft-card__icon {
+  width: auto;
+  height: clamp(40px, 3.6vw, 52px);
+  object-fit: contain;
+}
+
+.ft-card__title {
+  margin-top: clamp(12px, 1.3vw, 18px);
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.ft-card__text {
+  margin-top: 10px;
+  max-width: 26ch;
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+/* ---------- One link ---------- */
+
+.ft-link__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* the illustration already carries its own grey rounded card */
+.ft-link__art img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-inline: auto;
+}
+
+.ft-link__title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.ft-link__text {
+  margin-top: 12px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.ft-link__cta {
+  margin-top: 20px;
+}
+
+/* ---------- Dark theme ---------- */
+
+[data-theme="dark"] .ft-card {
+  background: var(--card);
+  border-color: rgba(76, 168, 92, 0.5);
+  box-shadow: none;
+}
+
+/* the icons are dark navy PNGs: flatten them to white */
+[data-theme="dark"] .ft-card__icon {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 800px) {
+  .ft-hero__grid,
+  .ft-link__grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 480px;
+  }
+
+  .ft-hero__copy,
+  .ft-link__copy {
+    text-align: center;
+  }
+
+  .ft-hero__title,
+  .ft-hero__lead {
+    margin-inline: auto;
+  }
+
+  .ft-hero__lead {
+    font-size: 13px;
+  }
+
+  .ft-link__text {
+    font-size: 12px;
+  }
+
+  .ft-card__text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ft-cards {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+  }
+}
