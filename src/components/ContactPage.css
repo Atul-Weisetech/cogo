@@ -1,0 +1,700 @@
+/* ---------- Hero ---------- */
+
+/* The skyline fades to white at its bottom edge. The hero starts behind the
+   sticky navbar so there's no white band above it. */
+.cp-hero {
+  --nav-h: calc(88px + env(safe-area-inset-top, 0px));
+  position: relative;
+  isolation: isolate;
+  margin-top: calc(-1 * var(--nav-h));
+  padding-top: calc(var(--nav-h) + clamp(28px, 5vw, 64px));
+  padding-bottom: clamp(40px, 7vw, 88px);
+  text-align: center;
+  overflow: hidden;
+}
+
+.cp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--cp-hero-bg) center bottom / cover no-repeat;
+}
+
+.cp-hero__title {
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* ---------- Body ---------- */
+
+.cp-body {
+  padding-bottom: clamp(56px, 8vw, 104px);
+}
+
+.cp-body > .container,
+.cp-hero > .container {
+  max-width: 1000px;
+}
+
+/* keep the content clear of a notch when a phone is held sideways */
+.cp-hero > .container,
+.cp-body > .container {
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px))
+    max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Support channels ---------- */
+
+.cp-channels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.cp-channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 30px;
+  border-radius: 20px;
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+  text-align: center;
+}
+
+/* The icons are different widths (the in-app one is a wide, padded image), so the box
+   is sized by height and the image keeps its own proportions inside it */
+.cp-channel__icon {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  margin-bottom: 14px;
+}
+
+.cp-channel__icon img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.cp-channel__title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--navy);
+}
+
+.cp-channel__text {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.cp-channel__text a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cp-channel__text a:hover {
+  color: var(--green-dark);
+}
+
+/* ---------- Form + office ---------- */
+
+.cp-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(28px, 4vw, 48px);
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.cp-formwrap__title,
+.cp-office__title {
+  color: var(--navy);
+}
+
+.cp-formwrap__title {
+  font-size: clamp(26px, 2.8vw, 32px);
+  font-weight: 800;
+}
+
+.cp-formwrap__lead {
+  margin: 10px 0 18px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.cp-form {
+  display: grid;
+  gap: 14px;
+}
+
+.cp-form__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.cp-field {
+  position: relative;
+  min-width: 0;
+}
+
+.cp-input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font: inherit;
+  font-size: 12px;
+  color: var(--text);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cp-input::placeholder {
+  color: var(--text-muted);
+}
+
+.cp-input:focus-visible {
+  outline: 0;
+  border-color: var(--green);
+  background: var(--card);
+}
+
+.cp-input[aria-invalid="true"] {
+  border-color: #d64545;
+}
+
+.cp-textarea {
+  min-height: 130px;
+  padding-block: 16px;
+  border-radius: 20px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Native select with the arrow drawn by us, so it matches the other pills */
+.cp-select {
+  appearance: none;
+  padding-right: 46px;
+  cursor: pointer;
+}
+
+.cp-select.is-empty {
+  color: var(--text-muted);
+}
+
+.cp-select option {
+  color: var(--text);
+}
+
+.cp-select__chevron {
+  position: absolute;
+  top: 24px;
+  right: 18px;
+  translate: 0 -50%;
+  color: var(--navy);
+  pointer-events: none;
+}
+
+.cp-field__error {
+  margin: 6px 0 0 18px;
+  font-size: 12px;
+  color: #d64545;
+}
+
+/* ---------- Attachment ---------- */
+
+/* The real file input covers the whole pill (invisible), so it's one big tap target and
+   keeps native keyboard and drag-and-drop behaviour. */
+.cp-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font-size: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.cp-file:focus-within {
+  border-color: var(--green);
+}
+
+.cp-file__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  /* the native "No file chosen" text can't be restyled: it's hidden by the opacity */
+}
+
+.cp-file__input:focus-visible {
+  outline: 0;
+}
+
+.cp-file__btn {
+  flex: none;
+  padding: 8px 18px;
+  border-radius: var(--r-pill);
+  background: #dfe3ea;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.cp-file__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.cp-file__name.has-file {
+  color: var(--text);
+}
+
+/* sits above the invisible input so it stays clickable */
+.cp-file__clear {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text-muted);
+}
+
+.cp-file__clear:hover {
+  background: #dfe3ea;
+  color: var(--text);
+}
+
+/* ---------- Consent + submit ---------- */
+
+.cp-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.cp-consent input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.cp-consent label {
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.cp-consent a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cp-form__submit {
+  justify-self: start;
+  margin-top: 6px;
+  padding-inline: 28px;
+}
+
+/* ---------- Sent state ---------- */
+
+.cp-sent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+}
+
+.cp-sent__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+}
+
+.cp-sent__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.cp-sent__text {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Registered office ---------- */
+
+.cp-office__title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.cp-office__address {
+  margin-top: 8px;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.cp-map {
+  margin-top: 14px;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.cp-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cp-extras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.cp-extra {
+  padding: 16px 18px 18px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.cp-extra__title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--navy);
+}
+
+.cp-extra__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-top: 12px;
+  padding: 7px 16px;
+  border: 1px solid var(--navy);
+  border-radius: var(--r-pill);
+  background: transparent;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy);
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.cp-extra__link:hover {
+  background: var(--navy);
+  color: var(--bg);
+}
+
+/* ---------- Dark theme ---------- */
+
+[data-theme="dark"] .cp-hero::before {
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .cp-channel__icon img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .cp-channel__text a:hover {
+  color: var(--green-bright);
+}
+
+[data-theme="dark"] .cp-file__btn,
+[data-theme="dark"] .cp-file__clear:hover {
+  background: var(--raised);
+}
+
+[data-theme="dark"] .cp-input:focus-visible {
+  background: var(--surface-2);
+}
+
+[data-theme="dark"] .cp-field__error,
+[data-theme="dark"] .cp-input[aria-invalid="true"] {
+  color: #ff8a8a;
+}
+
+[data-theme="dark"] .cp-input[aria-invalid="true"] {
+  border-color: #ff8a8a;
+}
+
+[data-theme="dark"] .cp-map {
+  /* the satellite view stays as is; only the loading backdrop follows the theme */
+  background: var(--card);
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* Tablets: the form and the office stack */
+@media (max-width: 860px) {
+  .cp-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Touch screens: iOS zooms the page when an input is under 16px, so match that */
+@media (max-width: 820px) {
+  .cp-input,
+  .cp-file {
+    font-size: 16px;
+  }
+
+  .cp-file__btn,
+  .cp-file__name {
+    font-size: 14px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .cp-channels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* tiny type is hard to read on a phone */
+  .cp-channel__text,
+  .cp-formwrap__lead,
+  .cp-field__error {
+    font-size: 13.5px;
+  }
+
+  .cp-consent,
+  .cp-office__address {
+    font-size: 13px;
+  }
+
+  .cp-office__title {
+    font-size: 16px;
+  }
+
+  .cp-extra__link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cp-form__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .cp-extras {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Landscape phones / short windows: the hero shouldn't eat the whole screen */
+@media (max-height: 520px) and (orientation: landscape) {
+  .cp-hero {
+    padding-top: calc(var(--nav-h) + 4px);
+    padding-bottom: 28px;
+  }
+
+  .cp-hero__title {
+    font-size: 28px;
+  }
+}
+
+/* Big monitors and TVs: scale the content up so it isn't lost in the middle */
+@media (min-width: 1800px) {
+  .cp-hero__title {
+    font-size: 56px;
+  }
+
+  .cp-body > .container,
+  .cp-hero > .container {
+    max-width: 1300px;
+  }
+
+  .cp-channel__title {
+    font-size: 20px;
+  }
+
+  .cp-channel__text,
+  .cp-formwrap__lead {
+    font-size: 15px;
+  }
+
+  .cp-formwrap__title {
+    font-size: 40px;
+  }
+
+  .cp-input,
+  .cp-file {
+    font-size: 15px;
+  }
+
+  .cp-input {
+    min-height: 58px;
+  }
+
+  .cp-consent,
+  .cp-office__address {
+    font-size: 14px;
+  }
+
+  .cp-office__title {
+    font-size: 18px;
+  }
+
+  .cp-extra__title {
+    font-size: 16px;
+  }
+
+  .cp-extra__link {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .cp-hero__title {
+    font-size: 68px;
+  }
+
+  .cp-body > .container,
+  .cp-hero > .container {
+    max-width: 1700px;
+  }
+}
+
+/* 4K screens and TVs: widen and scale the content for this page */
+@media (min-width: 3000px) {
+  .cp-body > .container,
+  .cp-hero > .container {
+    max-width: 2400px;
+  }
+
+  .cp-hero__title {
+    font-size: 88px;
+  }
+
+  .cp-channel {
+    padding: 44px 30px 48px;
+    border-radius: 30px;
+  }
+
+  .cp-channel__icon {
+    height: 72px;
+    margin-bottom: 22px;
+  }
+
+  .cp-channel__title {
+    font-size: 28px;
+  }
+
+  .cp-channel__text {
+    font-size: 21px;
+  }
+
+  .cp-formwrap__title {
+    font-size: 56px;
+  }
+
+  .cp-formwrap__lead {
+    font-size: 20px;
+  }
+
+  .cp-form,
+  .cp-form__row {
+    gap: 22px;
+  }
+
+  .cp-input {
+    min-height: 80px;
+    padding-inline: 34px;
+    font-size: 22px;
+  }
+
+  .cp-file {
+    min-height: 100px;
+    font-size: 22px;
+  }
+
+  .cp-file__btn,
+  .cp-file__name {
+    font-size: 22px;
+  }
+
+  .cp-consent,
+  .cp-office__address {
+    font-size: 20px;
+  }
+
+  .cp-consent input {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cp-office__title {
+    font-size: 28px;
+  }
+
+  .cp-form__submit {
+    padding: 18px 44px;
+    font-size: 22px;
+  }
+
+  .cp-extra {
+    padding: 28px 30px 32px;
+    border-radius: 18px;
+  }
+
+  .cp-extra__title {
+    font-size: 24px;
+  }
+
+  .cp-extra__link {
+    padding: 12px 26px;
+    font-size: 20px;
+  }
+}

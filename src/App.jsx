@@ -15,23 +15,27 @@ import BackToTop from "./components/BackToTop.jsx";
 import DrivePage from "./components/DrivePage.jsx";
 import FeaturesPage from "./components/FeaturesPage.jsx";
 import HelpPage from "./components/HelpPage.jsx";
+import WomenModePage from "./components/WomenModePage.jsx";
 import PricingPage from "./components/PricingPage.jsx";
 import CommutePage from "./components/CommutePage.jsx";
 import FamilyTrackingPage from "./components/FamilyTrackingPage.jsx";
 import AboutPage from "./components/AboutPage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE, ABOUT_PAGE } from "./data/content.js";
+import ContactPage from "./components/ContactPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, WOMEN_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE, ABOUT_PAGE, CONTACT_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/about", "#/help" and "#/pricing" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/about", "#/contact", "#/help", "#/women-mode" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
   if (hash === DRIVE_PAGE) return "drive";
   if (hash === FEATURES_PAGE) return "features";
   if (hash === HELP_PAGE) return "help";
+  if (hash === WOMEN_PAGE) return "women";
   if (hash === PRICING_PAGE) return "pricing";
   if (hash === COMMUTE_PAGE) return "commute";
   if (hash === FAMILY_PAGE) return "family";
   if (hash === ABOUT_PAGE) return "about";
+  if (hash === CONTACT_PAGE) return "contact";
   return "home";
 };
 
@@ -71,6 +75,8 @@ export default function App() {
           <FeaturesPage />
         ) : page === "help" ? (
           <HelpPage />
+        ) : page === "women" ? (
+          <WomenModePage />
         ) : page === "pricing" ? (
           <PricingPage />
         ) : page === "commute" ? (
@@ -79,6 +85,8 @@ export default function App() {
           <FamilyTrackingPage />
         ) : page === "about" ? (
           <AboutPage />
+        ) : page === "contact" ? (
+          <ContactPage />
         ) : (
           <>
             <Hero />

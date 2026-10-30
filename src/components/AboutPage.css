@@ -1,10 +1,47 @@
+/* ==========================================================================
+   About page: fluid sizing.
+   Everything scales from the tokens below, so the page reads the same on a
+   320px phone, a tablet, a laptop and a 4K monitor:
+     --ab-wide / --ab-mid   content widths (hero + mission, everything else)
+     --ab-fs-xs / --ab-fs-sm   small body copy, never below 11px
+   Breakpoints: 1600 / 2200 (bigger screens), 1024 (small laptops),
+   800 (tablets: larger text), 700 (hero, mission, team stack), 640 (phones).
+   ========================================================================== */
+
+.ab-page {
+  --ab-wide: 1000px;
+  --ab-mid: 880px;
+  --ab-fs-xs: clamp(11px, 0.8vw, 14px);
+  --ab-fs-sm: clamp(11.5px, 0.88vw, 15px);
+  --ab-gap: clamp(12px, 1.3vw, 20px);
+}
+
+@media (min-width: 1600px) {
+  .ab-page {
+    --ab-wide: 1180px;
+    --ab-mid: 1020px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .ab-page {
+    --ab-wide: 1320px;
+    --ab-mid: 1140px;
+  }
+}
+
+/* keep content clear of notches in landscape */
+.ab-page .container {
+  padding-inline: max(var(--gutter), env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
 /* ---------- Shared ---------- */
 
 .ab-title {
-  margin-bottom: clamp(24px, 3vw, 40px);
+  margin-bottom: clamp(24px, 3vw, 44px);
   text-align: center;
   color: var(--navy);
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-size: clamp(24px, 2.5vw, 46px);
 }
 
 /* ---------- Hero ---------- */
@@ -12,38 +49,39 @@
 .ab-hero {
   --nav-h: calc(88px + env(safe-area-inset-top, 0px));
   margin-top: calc(-1 * var(--nav-h));
-  padding-top: calc(var(--nav-h) + clamp(16px, 3vw, 40px));
-  padding-bottom: clamp(24px, 4vw, 48px);
+  padding-top: calc(var(--nav-h) + clamp(16px, 3vw, 48px));
+  padding-bottom: clamp(24px, 4vw, 56px);
 }
 
 .ab-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(24px, 5vw, 64px);
-  max-width: 960px;
+  gap: clamp(24px, 5vw, 72px);
+  max-width: var(--ab-wide);
   margin-inline: auto;
 }
 
 .ab-hero__title {
-  max-width: 20ch;
-  font-size: clamp(26px, 3.2vw, 36px);
+  max-width: 22ch;
+  font-size: clamp(26px, 2.6vw, 46px);
   font-weight: 800;
   line-height: 1.15;
   color: var(--navy);
+  text-wrap: balance;
 }
 
 .ab-hero__lead {
   max-width: 40ch;
-  margin: 14px 0 22px;
-  font-size: 12px;
+  margin: clamp(12px, 1.2vw, 20px) 0 clamp(20px, 2vw, 32px);
+  font-size: clamp(13px, 0.95vw, 17px);
   color: var(--text);
 }
 
 .ab-hero__art img {
   display: block;
   width: 100%;
-  max-width: 440px;
+  max-width: clamp(300px, 36vw, 600px);
   height: auto;
   margin-inline: auto;
 }
@@ -61,9 +99,9 @@
 .ab-body::before {
   content: "";
   position: absolute;
-  inset: clamp(120px, 15vw, 220px) -25% 0;
+  inset: clamp(120px, 15vw, 260px) -25% 0;
   z-index: -1;
-  border-radius: 50% 50% 0 0 / min(26vw, 380px) min(26vw, 380px) 0 0;
+  border-radius: 50% 50% 0 0 / min(26vw, 420px) min(26vw, 420px) 0 0;
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
 }
 
@@ -71,38 +109,38 @@
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(16px, 3vw, 40px);
-  max-width: 960px;
+  gap: clamp(16px, 3vw, 48px);
+  max-width: var(--ab-wide);
   margin-inline: auto;
-  padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 56px);
-  border-radius: 14px;
+  padding: clamp(28px, 4vw, 64px) clamp(24px, 4vw, 72px);
+  border-radius: clamp(14px, 1.3vw, 20px);
   background: var(--ink-850);
   color: #fff;
   box-shadow: var(--shadow-lg);
 }
 
 .ab-mission__title {
-  font-size: clamp(26px, 3vw, 34px);
+  font-size: clamp(26px, 3vw, 46px);
   font-weight: 800;
 }
 
 .ab-mission__subtitle {
-  margin-top: 14px;
+  margin-top: clamp(12px, 1.2vw, 20px);
   font-family: var(--font-head);
-  font-size: clamp(14px, 1.3vw, 16px);
+  font-size: clamp(15px, 1.3vw, 22px);
   font-weight: 600;
 }
 
 .ab-mission__text {
   margin-top: 12px;
   max-width: 52ch;
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: var(--ab-fs-sm);
+  line-height: 1.65;
   color: var(--text-on-dark-muted);
 }
 
 .ab-mission__cta {
-  margin-top: 24px;
+  margin-top: clamp(20px, 2vw, 32px);
   background: var(--ink-600);
   color: #fff;
 }
@@ -113,7 +151,7 @@
 
 .ab-mission__art {
   width: 100%;
-  max-width: 340px;
+  max-width: clamp(240px, 28vw, 460px);
   height: auto;
   margin-inline: auto;
 }
@@ -121,18 +159,18 @@
 /* ---------- Problem ---------- */
 
 .ab-problem {
-  padding-top: clamp(40px, 6vw, 72px);
+  padding-top: clamp(40px, 6vw, 84px);
 }
 
 .ab-problem__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 720px;
+  max-width: var(--ab-mid);
   margin-inline: auto;
 }
 
 .ab-problem__item {
-  padding-inline: clamp(14px, 2vw, 24px);
+  padding-inline: clamp(14px, 2vw, 32px);
 }
 
 .ab-problem__item + .ab-problem__item {
@@ -141,21 +179,21 @@
 
 .ab-problem__icon {
   width: auto;
-  height: clamp(30px, 2.8vw, 38px);
+  height: clamp(30px, 2.8vw, 48px);
   object-fit: contain;
 }
 
 .ab-problem__title {
   margin-top: 14px;
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(14px, 1.2vw, 20px);
   font-weight: 600;
   color: var(--navy);
 }
 
 .ab-problem__text {
   margin-top: 6px;
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: var(--ab-fs-xs);
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
@@ -164,17 +202,17 @@
 .ab-principles__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 1.3vw, 18px);
-  max-width: 720px;
+  gap: var(--ab-gap);
+  max-width: var(--ab-mid);
   margin-inline: auto;
 }
 
 .ab-principle {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: clamp(16px, 1.8vw, 22px);
-  border-radius: 14px;
+  gap: clamp(12px, 1.2vw, 20px);
+  padding: clamp(16px, 1.8vw, 28px);
+  border-radius: clamp(14px, 1.2vw, 18px);
   background: var(--card);
   border: 1px solid rgba(76, 168, 92, 0.3);
   border-top-color: rgba(76, 168, 92, 0.55);
@@ -189,30 +227,30 @@
 }
 
 .ab-principle__title {
-  font-size: clamp(13px, 1.1vw, 15px);
+  font-size: clamp(14px, 1.1vw, 19px);
   font-weight: 600;
   color: var(--navy);
 }
 
 .ab-principle__text {
   margin-top: 4px;
-  font-size: 10px;
-  line-height: 1.45;
+  font-size: var(--ab-fs-xs);
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
 /* ---------- Journey ---------- */
 
 .ab-journey {
-  margin-top: clamp(24px, 4vw, 48px);
-  padding-block: clamp(40px, 6vw, 72px);
+  margin-top: clamp(24px, 4vw, 56px);
+  padding-block: clamp(40px, 6vw, 88px);
   background: var(--surface);
 }
 
 .ab-journey__track {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: 760px;
+  max-width: var(--ab-mid);
   margin-inline: auto;
 }
 
@@ -226,11 +264,16 @@
 .ab-step__icon {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: clamp(40px, 3.2vw, 56px);
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--step-color);
   color: #fff;
+}
+
+.ab-step__icon svg {
+  width: 52%;
+  height: 52%;
 }
 
 /* full-width strip so the connecting line is drawn by the same column as its dot */
@@ -245,8 +288,8 @@
 .ab-step__dot {
   position: relative;
   z-index: 1;
-  width: 10px;
-  height: 10px;
+  width: clamp(10px, 0.8vw, 13px);
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--step-color);
 }
@@ -254,7 +297,7 @@
 .ab-step__title {
   margin-top: 14px;
   padding-inline: 10px;
-  font-size: clamp(12px, 1.05vw, 14px);
+  font-size: clamp(13px, 1.05vw, 18px);
   font-weight: 600;
   color: var(--navy);
 }
@@ -263,8 +306,8 @@
   margin-top: 8px;
   padding-inline: 10px;
   max-width: 24ch;
-  font-size: 9px;
-  line-height: 1.5;
+  font-size: var(--ab-fs-xs);
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
@@ -288,7 +331,7 @@
     top: 50%;
     left: -1px; /* overlap the neighbouring column so no seam shows */
     right: -1px;
-    height: 3px;
+    height: clamp(3px, 0.25vw, 4px);
     transform: translateY(-50%);
     border-radius: 2px;
     background: #6aa8f5;
@@ -306,7 +349,7 @@
 /* ---------- Team ---------- */
 
 .ab-team {
-  padding-top: clamp(40px, 6vw, 72px);
+  padding-top: clamp(40px, 6vw, 84px);
 }
 
 .ab-team .ab-title {
@@ -314,17 +357,17 @@
 }
 
 .ab-team__lead {
-  margin-bottom: clamp(24px, 3vw, 36px);
+  margin-bottom: clamp(24px, 3vw, 44px);
   text-align: center;
-  font-size: 11px;
+  font-size: var(--ab-fs-sm);
   color: var(--text);
 }
 
 .ab-team__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(12px, 1.3vw, 18px);
-  max-width: 720px;
+  gap: var(--ab-gap);
+  max-width: var(--ab-mid);
   margin-inline: auto;
 }
 
@@ -332,8 +375,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(18px, 2vw, 26px) 12px;
-  border-radius: 14px;
+  padding: clamp(18px, 2vw, 34px) 12px;
+  border-radius: clamp(14px, 1.2vw, 18px);
   background: var(--card);
   box-shadow: var(--shadow-md);
   text-align: center;
@@ -342,41 +385,41 @@
 .ab-member__avatar {
   display: grid;
   place-items: center;
-  width: clamp(56px, 5.4vw, 68px);
+  width: clamp(56px, 5.4vw, 92px);
   aspect-ratio: 1;
   border-radius: 50%;
   background: linear-gradient(160deg, var(--green-soft) 0%, var(--green-soft-2) 100%);
   box-shadow: 0 0 0 3px var(--bg), 0 0 0 4.5px var(--green);
   font-family: var(--font-head);
-  font-size: clamp(16px, 1.6vw, 20px);
+  font-size: clamp(16px, 1.6vw, 28px);
   font-weight: 700;
   color: var(--green-dark);
 }
 
 .ab-member__name {
   margin-top: 14px;
-  font-size: clamp(12px, 1.05vw, 14px);
+  font-size: clamp(13px, 1.05vw, 18px);
   font-weight: 600;
   color: var(--navy);
 }
 
 .ab-member__role {
   margin-top: 4px;
-  font-size: 9px;
+  font-size: var(--ab-fs-xs);
   color: var(--text-muted);
 }
 
 /* ---------- Press / careers / contact ---------- */
 
 .ab-reach {
-  padding-bottom: clamp(48px, 7vw, 88px);
+  padding-bottom: clamp(48px, 7vw, 104px);
 }
 
 .ab-reach__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 1.3vw, 18px);
-  max-width: 720px;
+  gap: var(--ab-gap);
+  max-width: var(--ab-mid);
   margin-inline: auto;
 }
 
@@ -385,7 +428,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(20px, 2.2vw, 28px) clamp(14px, 1.8vw, 22px);
+  padding: clamp(20px, 2.2vw, 36px) clamp(14px, 1.8vw, 28px);
   background: var(--card);
   text-align: center;
 }
@@ -404,23 +447,19 @@
   pointer-events: none;
 }
 
-.ab-reach__icon {
-  color: var(--navy);
-}
-
 .ab-reach__title {
   margin-top: 10px;
-  font-size: clamp(13px, 1.1vw, 15px);
+  font-size: clamp(14px, 1.1vw, 19px);
   font-weight: 600;
   color: var(--navy);
 }
 
 .ab-reach__text {
   flex: 1;
-  margin: 8px 0 16px;
+  margin: 8px 0 clamp(16px, 1.6vw, 24px);
   max-width: 26ch;
-  font-size: 9px;
-  line-height: 1.5;
+  font-size: var(--ab-fs-xs);
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
@@ -428,12 +467,12 @@
 
 .ab-icon-img {
   width: auto;
-  height: clamp(32px, 3vw, 40px);
+  height: clamp(32px, 3vw, 52px);
   object-fit: contain;
 }
 
 .ab-reach__icon {
-  height: clamp(34px, 3.2vw, 44px);
+  height: clamp(34px, 3.2vw, 58px);
 }
 
 /* the icons are dark navy PNGs: flatten them to white */
@@ -442,13 +481,30 @@
   filter: brightness(0) invert(1);
 }
 
-/* ---------- Breakpoints ---------- */
+/* ---------- Tablets and below ---------- */
 
 @media (max-width: 800px) {
+  /* touch screens: bigger body text and 44px tap targets */
+  .ab-page {
+    --ab-fs-xs: 13px;
+    --ab-fs-sm: 14px;
+  }
+
+  .ab-page .btn {
+    min-height: 44px;
+  }
+
+  .ab-principles__grid {
+    max-width: 560px;
+  }
+}
+
+/* the two-column hero and mission card stack, centred */
+@media (max-width: 700px) {
   .ab-hero__grid,
   .ab-mission__card {
     grid-template-columns: minmax(0, 1fr);
-    max-width: 480px;
+    max-width: 520px;
   }
 
   .ab-hero__copy {
@@ -460,40 +516,28 @@
     margin-inline: auto;
   }
 
-  .ab-hero__lead {
-    font-size: 13px;
-  }
-
-  .ab-mission__text,
-  .ab-problem__text,
-  .ab-principle__text,
-  .ab-step__text,
-  .ab-team__lead,
-  .ab-member__role,
-  .ab-reach__text {
-    font-size: 12px;
+  .ab-hero__art img {
+    max-width: 360px;
   }
 
   .ab-mission__art {
-    max-width: 280px;
+    max-width: 300px;
   }
 
   .ab-team__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 420px;
-  }
-
-  .ab-principles__grid {
-    max-width: 480px;
+    max-width: 440px;
   }
 }
+
+/* ---------- Phones ---------- */
 
 @media (max-width: 640px) {
   .ab-problem__grid,
   .ab-principles__grid,
   .ab-reach__grid {
     grid-template-columns: minmax(0, 1fr);
-    max-width: 420px;
+    max-width: 440px;
   }
 
   .ab-problem__item {
@@ -509,7 +553,7 @@
   .ab-journey__track {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    max-width: 320px;
+    max-width: 340px;
   }
 
   .ab-step__rail {
@@ -518,5 +562,27 @@
 
   .ab-step__text {
     max-width: 30ch;
+  }
+}
+
+/* small phones (320px and narrow foldables) */
+@media (max-width: 360px) {
+  .ab-mission__card {
+    padding-inline: 20px;
+  }
+
+  .ab-team__grid {
+    gap: 10px;
+  }
+
+  .ab-member {
+    padding-inline: 8px;
+  }
+}
+
+/* short landscape phones: don't let the hero eat the whole screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .ab-hero {
+    padding-bottom: 16px;
   }
 }

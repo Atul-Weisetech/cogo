@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import Icon from "./common/Icon.jsx";
 import Reveal from "./common/Reveal.jsx";
-import { faqs } from "../data/content.js";
+import { faqs, CONTACT_PAGE } from "../data/content.js";
 import car from "../assets/images/car.png";
 import safes from "../assets/images/safes.png";
 import price from "../assets/images/price.png";
@@ -29,7 +29,7 @@ export default function Faq({
 
           <div className="faq__help">
             <span>Need more help?</span>
-            <a href="#contact" className="btn btn--primary btn--sm">
+            <a href={CONTACT_PAGE}className="btn btn--primary btn--sm">
               Visit our Help Centre
               <Icon name="arrowRight" size={15} />
             </a>

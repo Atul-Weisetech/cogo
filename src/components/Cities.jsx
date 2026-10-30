@@ -1,6 +1,6 @@
 import Icon from "./common/Icon.jsx";
 import Reveal from "./common/Reveal.jsx";
-import { cities } from "../data/content.js";
+import { cities, CONTACT_PAGE } from "../data/content.js";
 import mapImage from "../assets/images/map.png";
 import "./Cities.css";
 
@@ -23,7 +23,7 @@ export default function Cities() {
 
           <div className="cities__prompt">
             <p>{cities.prompt}</p>
-            <a href="#contact" className="btn btn--primary btn--sm">
+            <a href={CONTACT_PAGE}className="btn btn--primary btn--sm">
               {cities.cta}
               <Icon name="arrowRight" size={15} />
             </a>

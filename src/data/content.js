@@ -12,6 +12,8 @@ export const FEATURES_PAGE = "#/features";
 
 export const HELP_PAGE = "#/help";
 
+export const WOMEN_PAGE = "#/women-mode";
+
 export const PRICING_PAGE = "#/pricing";
 
 /* "Features" overview page. #/features is the Safety page, so this one gets its own hash. */
@@ -20,6 +22,8 @@ export const COMMUTE_PAGE = "#/commute-features";
 export const FAMILY_PAGE = "#/family-tracking";
 
 export const ABOUT_PAGE = "#/about";
+
+export const CONTACT_PAGE = "#/contact";
 
 /* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
@@ -457,7 +461,7 @@ export const featuresPage = {
     lead: "Verification, live tracking, SOS and masked contact — built into every screen, not hidden in a menu.",
     cta: [
       { label: "Get the app", href: "#app", variant: "dark" },
-      { label: "Learn about Women Mode", href: HELP_PAGE, variant: "ghost" },
+      { label: "Learn about Women Mode", href: WOMEN_PAGE, variant: "ghost" },
     ],
   },
   before: {
@@ -619,11 +623,10 @@ export const aboutPage = {
   reach: [
     { image: "press", title: "Press Kit", text: "Logos, product screenshots, key facts and our story.", cta: "Download press kit", href: "#contact" },
     { image: "careers", title: "Careers", text: "Help us make shared mobility simple, safe and accessible across India.", cta: "See open roles", href: "#contact" },
-    { image: "contact", title: "Contact", text: "For media, partnerships or general enquiries, we'd love to hear from you.", cta: "Contact us", href: "#contact" },
+    { image: "contact", title: "Contact", text: "For media, partnerships or general enquiries, we'd love to hear from you.", cta: "Contact us", href: CONTACT_PAGE },
   ],
 };
 
-/* "Help / FAQ" page (#/help): how Women Mode verification works. */
 /* "Features" overview page (#/commute-features). The tile and lead copy was read off a
    low-resolution Figma screenshot, so check it against the final design. */
 export const commutePage = {
@@ -704,7 +707,8 @@ export const commutePage = {
   },
 };
 
-export const helpPage = {
+/* "Women Mode" page (#/women-mode): how Women Mode verification works. */
+export const womenPage = {
   hero: {
     title: "Women Mode.",
     /* the word joiner stops the title wrapping at the hyphen */
@@ -752,6 +756,283 @@ export const helpPage = {
     title: "Women Mode",
     highlight: "questions",
   },
+};
+
+/* "Help Centre" page (#/help). Only "Taking a ride" is in the Figma; the other categories
+   are short placeholders built from copy already on the site, to be replaced by the app
+   FAQ database. Each category takes any number of { q, a } pairs. */
+export const helpCenter = {
+  hero: {
+    title: "How can",
+    highlight: "we help?",
+    searchLabel: "Search help",
+    placeholder: "Search help",
+    cta: "Search",
+  },
+  defaultCategory: "taking",
+  categories: [
+    {
+      id: "getting-started",
+      label: "Getting started",
+      faqs: [
+        {
+          q: "What is Cogo?",
+          a: "Cogo is a ride-sharing community, not a taxi service. Drivers are regular commuters already making the trip, and riders share the cost of the journey instead of paying a cab fare.",
+        },
+        {
+          q: "How do I get started?",
+          a: "Download the app and sign up. Then either find a ride with Take a Ride, or add your vehicle, verify once and post your route with Offer a Ride.",
+        },
+        {
+          q: "Which cities is Cogo in?",
+          a: "Cogo is rolling out in Ahmedabad and Gandhinagar first, with Bengaluru, Mumbai, Pune, Delhi NCR and Hyderabad coming soon.",
+        },
+      ],
+    },
+    {
+      id: "taking",
+      label: "Taking a ride",
+      faqs: [
+        {
+          q: "How do I know the price?",
+          a: "You see the full fare before you request or confirm a ride. It is itemised into the open contribution, distance, a platform fee and GST, less any discounts. Nearby rides show a fixed, banded price, and there is no surge pricing.",
+        },
+        {
+          q: "What is 'request to join'?",
+          a: "Some drivers confirm bookings instantly; others approve each rider. With request to join you send a request and the driver accepts or declines it. Nearby requests expire in 45 seconds if nobody accepts.",
+        },
+        {
+          q: "What if the driver is late?",
+          a: "Follow the driver live on the map, and chat or call through masked numbers. If you would rather not wait you can cancel, and the cancellation policy shown before you confirmed applies. Still stuck? Contact support and we will look into it.",
+        },
+        {
+          q: "How do I cancel?",
+          a: "Cancel the ride from the app. Cancelling 24+ hours before departure is free, 2–24 hours before carries a 25% fee, and within 2 hours a 50% fee. The policy is shown before you confirm.",
+        },
+        {
+          q: "How do refunds work?",
+          a: "If a ride is cancelled and a refund applies, it goes back to your original payment method in 5–7 working days, or instantly to your COGO wallet.",
+        },
+        {
+          q: "What is the QR check?",
+          a: "When you board, scan the driver's QR code in the app. It confirms you are getting into the right car before the ride starts.",
+        },
+        {
+          q: "Can I bring luggage or pets?",
+          a: "Drivers set their own rules for luggage, music, pets and smoking, and you can see them on the ride before you book. If you are unsure, check the rules or message the driver first.",
+        },
+        {
+          q: "How do I share my trip?",
+          a: "Share your live trip from the ride screen so family can follow along in real time and have peace of mind.",
+        },
+      ],
+    },
+    {
+      id: "offering",
+      label: "Offering a ride",
+      faqs: [
+        {
+          q: "Who can offer rides?",
+          a: "Any verified driver with a valid licence and a vehicle whose registration (RC) has been checked by our team. Add your vehicle, verify once, and post your route, seats and contribution.",
+        },
+        {
+          q: "How is the contribution set?",
+          a: "We suggest a contribution for every route based on distance, fuel and tolls. You can keep it or lower it, but never raise it.",
+        },
+        {
+          q: "When do I get paid?",
+          a: "Payouts go to your bank account in T+2 working days, and you get a GST receipt for every ride.",
+        },
+      ],
+    },
+    {
+      id: "verification",
+      label: "Verification",
+      faqs: [
+        {
+          q: "How are drivers verified?",
+          a: "Your driving licence is checked automatically in seconds, and your RC is reviewed by our team. You see the status of each separately.",
+        },
+        {
+          q: "How long does verification take?",
+          a: "Your licence check takes seconds. Registration certificate (RC) reviews are typically done within 24–48 hours.",
+        },
+        {
+          q: "What happens to my ID after the check?",
+          a: "Your ID image is used only for the check and is deleted once the decision is made. It is never reused for anything else without fresh consent.",
+        },
+      ],
+    },
+    {
+      id: "payments",
+      label: "Payments & wallet",
+      faqs: [
+        {
+          q: "Which payment methods can I use?",
+          a: "Pay by UPI, credit or debit card, net banking or your COGO wallet. Payments run through an RBI-authorised payment aggregator.",
+        },
+        {
+          q: "When am I charged?",
+          a: "You pay in the app when you confirm a ride. COGO holds the amount securely and releases it to the driver once the ride is complete.",
+        },
+        {
+          q: "How does the COGO wallet work?",
+          a: "Top up once, then pay for rides and get refunds instantly. Refunds to the wallet are immediate.",
+        },
+        {
+          q: "Do I get a receipt?",
+          a: "Yes. A GST-compliant digital receipt is sent to your email and kept in the app straight after every ride.",
+        },
+      ],
+    },
+    {
+      id: "safety",
+      label: "Safety",
+      faqs: [
+        {
+          q: "What safety features does Cogo have?",
+          a: "Verified drivers and vehicles, a QR boarding check, one-tap SOS, live trip sharing with family, masked phone numbers and two-way ratings.",
+        },
+        {
+          q: "How does SOS work?",
+          a: "Tap SOS to call 112 and alert your trusted contacts with your live location.",
+        },
+        {
+          q: "How are my emergency contacts used?",
+          a: "Emergency contacts are only used for SOS and trip sharing.",
+        },
+      ],
+    },
+    {
+      id: "women",
+      label: "Women Mode",
+      faqs: [
+        {
+          q: "What is Women Mode?",
+          a: "Women Mode matches you only with women whose ID and selfie are verified. It applies both ways, to the rides you see and the riders who can book your seats, and stays on until you switch it off.",
+        },
+        {
+          q: "How do I turn on Women Mode?",
+          a: "Take a live selfie and add your ID in the app. Our safety team reviews it, typically within 24–48 hours, and Women Mode then unlocks in Preferences.",
+        },
+        {
+          q: "Is my ID shared with other riders?",
+          a: "No. Your ID and selfie are never shared with other riders, and are deleted after the decision. Others only see a Women Mode badge on your profile.",
+        },
+      ],
+    },
+    {
+      id: "account",
+      label: "Account & privacy",
+      faqs: [
+        {
+          q: "Is my phone number shared?",
+          a: "No. Chat and calls between riders and drivers go through masked numbers.",
+        },
+        {
+          q: "How do ratings work?",
+          a: "Riders rate drivers and drivers rate riders, so the experience is fairer for everyone. You can see real ratings, completed rides and cancellation rates on profiles.",
+        },
+        {
+          q: "Who can see my verification documents?",
+          a: "Our safety team reviews them for the check. They are used only for that, and are never shared with other riders.",
+        },
+      ],
+    },
+    {
+      id: "groups",
+      label: "Groups & Marketplace",
+      faqs: [
+        {
+          q: "What are Ride Groups?",
+          a: "Private circles for your office, campus or society. Invite colleagues, classmates or neighbours and keep every trip inside the group.",
+        },
+        {
+          q: "What is the Marketplace?",
+          a: "Post your trip once and let verified drivers make offers. Compare offers, price and rating, then pick the one you like.",
+        },
+        {
+          q: "Is anything booked automatically?",
+          a: "No. COGO can suggest rides for your regular commute, but nothing is booked or published without your say.",
+        },
+      ],
+    },
+  ],
+  contact: [
+    {
+      title: "Still need help?",
+      text: "Our team usually replies within a day.",
+      cta: "Contact support",
+      href: CONTACT_PAGE,
+    },
+    {
+      title: "Safety concern?",
+      /* word joiners + a no-break space keep "24–48 h" on one line */
+      text: "Report it and we'll respond within 24⁠–⁠48 h.",
+      cta: "Report a safety concern",
+      href: CONTACT_PAGE,
+    },
+  ],
+};
+
+/* "Contact & Support" page (#/contact). The grievance officer's name and email are
+   "[Name] · [email]" placeholders in the Figma, so fill them in before launch. */
+export const contactPage = {
+  hero: { title: "Contact &", highlight: "Support" },
+  channels: [
+    {
+      icon: "phone",
+      title: "In-app support",
+      text: "Open the app → Profile → Help → Chat with us.",
+    },
+    {
+      icon: "mail",
+      title: "Email support",
+      text: "support@cogo.app",
+      href: "mailto:support@cogo.app",
+    },
+    {
+      icon: "grievance",
+      title: "Grievance Officer",
+      text: "[Name] · [email] Acknowledgement within [24 h], resolution within [15 days] (IT Rules 2021).",
+    },
+  ],
+  form: {
+    title: "Contact",
+    highlight: "form",
+    lead: "Fill in the details below and we'll get back to you.",
+    topics: [
+      "Trip or booking",
+      "Payments & refunds",
+      "Safety concern",
+      "Account & verification",
+      "Offering a ride",
+      "Press & partnerships",
+      "Something else",
+    ],
+    maxFileMb: 10,
+    consent: "I agree COGO may use these details to respond.",
+    privacyLabel: "Privacy Policy",
+    /* same placeholder target as the footer's Privacy Policy link */
+    privacyHref: "#contact",
+    submit: "Send message",
+    success: {
+      title: "Thanks, we've got your message.",
+      text: "Our team usually replies within a day.",
+      again: "Send another message",
+    },
+  },
+  office: {
+    title: "Registered office",
+    address: "E-620, Ganesh Glory 11, Jagatpur Rd, near BSNL Office, off Sarkhej – Gandhinagar Highway, Jagatpur, Ahmedabad, Gujarat 382470",
+    mapTitle: "Map showing the COGO registered office in Jagatpur, Ahmedabad",
+    /* Google's keyless embed, satellite view (t=k) */
+    mapSrc: "https://maps.google.com/maps?q=E-620%2C%20Ganesh%20Glory%2011%2C%20Jagatpur%2C%20Ahmedabad%20382470&t=k&z=17&output=embed",
+  },
+  extras: [
+    { title: "Press kit", cta: "press@cogo.app", href: "mailto:press@cogo.app" },
+    { title: "Partnerships", cta: "Groups & Companies", href: "mailto:partnerships@cogo.app" },
+  ],
 };
 
 export const testimonials = [
@@ -828,7 +1109,7 @@ export const footer = {
         { label: "Blog", href: "#contact" },
         { label: "Careers", href: "#contact" },
         { label: "Press kit", href: "#contact" },
-        { label: "Contact", href: "#contact" },
+        { label: "Contact", href: CONTACT_PAGE },
       ],
     },
     {
@@ -837,7 +1118,7 @@ export const footer = {
         { label: "Terms of Service", href: "#contact" },
         { label: "Privacy Policy", href: "#contact" },
         { label: "Cancellation & Refund", href: "#contact" },
-        { label: "Grievance Officer", href: "#contact" },
+        { label: "Grievance Officer", href: CONTACT_PAGE },
         { label: "Cookie Notice", href: "#contact" },
       ],
     },
@@ -856,7 +1137,7 @@ export const footer = {
       title: "Trust",
       items: [
         { label: "Safety", href: FEATURES_PAGE },
-        { label: "Women Mode", href: HELP_PAGE },
+        { label: "Women Mode", href: WOMEN_PAGE },
         { label: "Family Tracking", href: FAMILY_PAGE },
         { label: "Community Guidelines", href: "#contact" },
         { label: "Verification", href: FEATURES_PAGE },

@@ -212,7 +212,7 @@ export default function AboutPage() {
   const { hero, mission, problem, principles, journey, team, reach } = aboutPage;
 
   return (
-    <>
+    <div className="ab-page">
       <Hero data={hero} />
       {/* the mission card sits on a pale ellipse that runs down behind the problem section */}
       <div className="ab-body">
@@ -223,6 +223,6 @@ export default function AboutPage() {
       <Journey data={journey} />
       <Team data={team} />
       <Reach items={reach} />
-    </>
+    </div>
   );
 }
