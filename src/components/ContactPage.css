@@ -294,14 +294,14 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text);
 }
 
 .cp-consent input {
   flex: none;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   margin: 0;
   accent-color: var(--green);
   cursor: pointer;
@@ -524,6 +524,12 @@
 @media (max-width: 480px) {
   .cp-form__row {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* let the attachment hint wrap rather than being cut off with an ellipsis */
+  .cp-file__name {
+    white-space: normal;
+    line-height: 1.3;
   }
 }
 

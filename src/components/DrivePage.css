@@ -149,7 +149,7 @@
   display: flex;
   align-items: center;
   margin-top: 12px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -372,7 +372,7 @@
 
 .dp-control__text {
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.35;
   color: var(--text);
 }
@@ -559,7 +559,7 @@
 
 .dp-rel__value {
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-on-dark-muted);
 }
 

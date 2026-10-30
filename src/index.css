@@ -275,6 +275,15 @@ svg {
   font-size: 14px;
 }
 
+/* Narrow phones: a long label wraps inside the button instead of pushing the page sideways */
+@media (max-width: 400px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 /* ---------- Scroll reveal ---------- */
 
 .reveal {

@@ -102,6 +102,21 @@
   .footer__about {
     max-width: 52ch;
   }
+
+  /* touch screens: give every link a comfortable tap area */
+  .footer__list {
+    gap: 0;
+  }
+
+  .footer__list a {
+    display: inline-block;
+    padding: 8px 0;
+  }
+
+  .footer__socials a {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* Mobile: link columns as a 2 x 2 grid, bottom bar stacked and centred. */
@@ -121,13 +136,8 @@
     margin-bottom: 10px;
   }
 
-  .footer__list {
-    gap: 4px;
-  }
-
   .footer__list a {
-    display: inline-block;
-    padding: 5px 0;
+    padding: 9px 0;
     font-size: 13px;
   }
 

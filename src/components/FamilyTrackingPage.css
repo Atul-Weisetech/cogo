@@ -101,7 +101,7 @@
 .ft-card__text {
   margin-top: 10px;
   max-width: 26ch;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.45;
   color: var(--text);
 }
@@ -134,7 +134,7 @@
 
 .ft-link__text {
   margin-top: 12px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
   color: var(--text);
 }
