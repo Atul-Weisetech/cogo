@@ -638,10 +638,26 @@ export const commutePage = {
     lead:
       "Cogo is a community of people already making the trip. Find a ride nearby, travel with a private group, post your own trip or set a routine once. You always see the price first and you always confirm.",
     chips: [
-      { label: "Nearby", href: "#nearby" },
-      { label: "Ride Groups", href: "#groups" },
-      { label: "Marketplace", href: "#marketplace" },
-      { label: "Smart Routine", href: "#routine" },
+      { label: "Nearby", href: "#nearby", icon: "pin" },
+      { label: "Ride Groups", href: "#groups", icon: "users" },
+      { label: "Marketplace", href: "#marketplace", icon: "bag" },
+      { label: "Smart Routine", href: "#routine", icon: "calendar" },
+    ],
+  },
+  intro: {
+    title: "Make the daily commute a",
+    highlight: "shared one.",
+    lead: "Every empty seat is a ride someone else needs. Cogo turns the trip you're already making into one you can share — lower cost for you, one less car on the road for everyone.",
+    cta: { label: "See rides near you", href: "#nearby" },
+  },
+  organisations: {
+    title: "Why organisations choose",
+    highlight: "COGO",
+    items: [
+      { icon: "parking", title: "Less parking pressure", text: "Fewer cars competing for the same office or campus lot." },
+      { icon: "rupee", title: "Lower commute cost", text: "Teams split fares instead of everyone paying for a solo ride." },
+      { icon: "sprout", title: "Smaller carbon footprint", text: "Shared trips mean fewer vehicles for the same number of people." },
+      { icon: "trendDown", title: "Less traffic congestion", text: "Consolidated rides ease pressure on the routes everyone uses." },
     ],
   },
   nearby: {

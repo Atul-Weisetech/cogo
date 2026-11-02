@@ -4,9 +4,10 @@ import Faq from "./Faq.jsx";
 import { commutePage } from "../data/content.js";
 import heroBg from "../assets/images/price-banner.png";
 import heroArt from "../assets/images/real commutes.png";
+import introArt from "../assets/images/Make.png";
 import nearbyArt from "../assets/images/right now.png";
-import groupsArt from "../assets/images/private.png";
-import marketplaceArt from "../assets/images/your trip.png";
+import groupsArt from "../assets/images/private 1.png";
+import marketplaceArt from "../assets/images/your trip-1.png";
 import routineArt from "../assets/images/conirm.png";
 import km from "../assets/images/5km.png";
 import fixed from "../assets/images/fixed banded.png";
@@ -45,6 +46,7 @@ function Hero({ data }) {
           {data.chips.map((chip) => (
             <li key={chip.label}>
               <a href={chip.href} className="cf-chip" onClick={scrollTo(chip.href)}>
+                <Icon name={chip.icon} size={16} />
                 {chip.label}
               </a>
             </li>
@@ -58,6 +60,54 @@ function Hero({ data }) {
             alt="A green Cogo car beside a phone showing a map pin"
           />
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* Short intro block between the hero and the feature breakdown. */
+function Intro({ data }) {
+  return (
+    <section className="section--tight cf-intro">
+      <div className="container cf-intro__grid">
+        <Reveal className="cf-intro__copy">
+          <h2 className="cf-intro__title">
+            {data.title} <span className="text-green">{data.highlight}</span>
+          </h2>
+          <p className="cf-intro__lead">{data.lead}</p>
+          <a href={data.cta.href} className="btn btn--sm btn--dark" onClick={scrollTo(data.cta.href)}>
+            {data.cta.label}
+            <Icon name="arrowRight" size={18} />
+          </a>
+        </Reveal>
+
+        <Reveal className="cf-intro__art" delay={100}>
+          <img src={introArt} alt="Two commuters and a traveller meeting beside a green car, guided by a phone showing the route" />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* Four-up grid of reasons organisations choose Cogo for group/office commutes. */
+function Organisations({ data }) {
+  return (
+    <section className="section--tight cf-section cf-section--alt">
+      <div className="container">
+        <Reveal as="h2" className="section-title cf-title">
+          {data.title} <span className="text-green">{data.highlight}</span>
+        </Reveal>
+        <ul className="cf-org-grid">
+          {data.items.map((item, i) => (
+            <Reveal as="li" key={item.title} className="cf-org-card" delay={i * 80}>
+              <span className="cf-org-card__icon">
+                <Icon name={item.icon} size={24} />
+              </span>
+              <h3 className="cf-org-card__title">{item.title}</h3>
+              <p className="cf-org-card__text">{item.text}</p>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -123,11 +173,13 @@ function Included({ data }) {
 }
 
 export default function CommutePage() {
-  const { hero, nearby, groups, marketplace, routine, included, faq } = commutePage;
+  const { hero, intro, organisations, nearby, groups, marketplace, routine, included, faq } = commutePage;
 
   return (
     <>
       <Hero data={hero} />
+      <Intro data={intro} />
+      <Organisations data={organisations} />
 
       <Feature
         data={nearby}

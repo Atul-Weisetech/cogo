@@ -139,6 +139,30 @@ const paths = {
       <path d="m8.7 10.8 6.6-3.6M8.7 13.2l6.6 3.6" {...S} />
     </>
   ),
+  bag: (
+    <>
+      <path d="M5 8.5h14l-1 11.5a2 2 0 0 1-2 1.8H8a2 2 0 0 1-2-1.8L5 8.5Z" {...S} />
+      <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" {...S} />
+    </>
+  ),
+  parking: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4" {...S} />
+      <path d="M9.5 16.5v-9h3.3a2.8 2.8 0 0 1 0 5.6H9.5" {...S} />
+    </>
+  ),
+  rupee: (
+    <>
+      <circle cx="12" cy="12" r="9" {...S} />
+      <path d="M8.5 8h7M8.5 11h7M8.5 8c3.8 0 6 1.1 6 3s-2.2 3-6 3h-.3l5 5.5" {...S} />
+    </>
+  ),
+  trendDown: (
+    <>
+      <path d="m4 7 6.5 6.5L14 10l6 6" {...S} strokeWidth="2.2" />
+      <path d="M20 10.5V16h-5.5" {...S} strokeWidth="2.2" />
+    </>
+  ),
 };
 
 export default function Icon({ name, size = 24, className = "", title }) {

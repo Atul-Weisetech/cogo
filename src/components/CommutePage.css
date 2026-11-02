@@ -40,8 +40,10 @@
 }
 
 .cf-chip {
-  display: inline-block;
-  padding: 9px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
   border-radius: var(--r-pill);
   background: #cfeedd;
   font-family: var(--font-head);
@@ -49,6 +51,11 @@
   font-weight: 600;
   color: var(--navy);
   transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.cf-chip svg {
+  flex: none;
+  color: var(--green-dark);
 }
 
 .cf-chip:hover {
@@ -64,6 +71,92 @@
   width: min(100%, 300px);
   height: auto;
   margin-inline: auto;
+}
+
+/* ---------- Intro ---------- */
+
+.cf-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.cf-intro__title {
+  font-size: clamp(24px, 2.8vw, 30px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.cf-intro__lead {
+  margin-top: 12px;
+  max-width: 44ch;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.cf-intro__grid .btn {
+  margin-top: 20px;
+}
+
+.cf-intro__art img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin-inline: auto;
+}
+
+/* ---------- Why organisations choose Cogo ---------- */
+
+.cf-section--alt {
+  background: var(--surface-2);
+}
+
+.cf-org-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.cf-org-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 28px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.cf-org-card__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.cf-org-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.cf-org-card__text {
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
 }
 
 /* ---------- Feature blocks ---------- */
@@ -210,6 +303,15 @@
   color: #fff;
 }
 
+[data-theme="dark"] .cf-section--alt {
+  background: var(--raised);
+}
+
+[data-theme="dark"] .cf-org-card {
+  background: var(--card);
+  border-color: var(--line);
+}
+
 [data-theme="dark"] .cf-feature--panel .cf-tile,
 [data-theme="dark"] .cf-callout,
 [data-theme="dark"] .cf-pill {
@@ -248,11 +350,17 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 600px;
   }
+
+  .cf-org-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 560px;
+  }
 }
 
 /* Stack the two-column blocks: copy first, illustration underneath */
 @media (max-width: 800px) {
-  .cf-feature__grid {
+  .cf-feature__grid,
+  .cf-intro__grid {
     grid-template-columns: minmax(0, 1fr);
     max-width: 480px;
   }
@@ -261,12 +369,15 @@
     order: 0;
   }
 
-  .cf-feature__copy {
+  .cf-feature__copy,
+  .cf-intro__copy {
     text-align: center;
   }
 
   .cf-feature__title,
-  .cf-feature__lead {
+  .cf-feature__lead,
+  .cf-intro__title,
+  .cf-intro__lead {
     margin-inline: auto;
   }
 
@@ -292,6 +403,11 @@
   .cf-pills {
     grid-template-columns: minmax(0, 1fr);
     max-width: 420px;
+  }
+
+  .cf-org-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 320px;
   }
 
   .cf-hero__lead,
