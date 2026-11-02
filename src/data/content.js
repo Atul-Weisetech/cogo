@@ -25,6 +25,8 @@ export const ABOUT_PAGE = "#/about";
 
 export const CONTACT_PAGE = "#/contact";
 
+export const BLOG_PAGE = "#/blog";
+
 /* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
@@ -1106,7 +1108,7 @@ export const footer = {
       title: "Company",
       items: [
         { label: "About", href: ABOUT_PAGE },
-        { label: "Blog", href: "#contact" },
+        { label: "Blog", href: BLOG_PAGE },
         { label: "Careers", href: "#contact" },
         { label: "Press kit", href: "#contact" },
         { label: "Contact", href: CONTACT_PAGE },
@@ -1149,4 +1151,39 @@ export const footer = {
     { icon: "instagram", label: "Instagram" },
     { icon: "linkedin", label: "LinkedIn" },
   ],
+};
+
+/* Blog. `image` keys map to artwork in BlogPage.jsx; `date` is ISO so posts sort newest-first. */
+export const blogPage = {
+  hero: {
+    titleLead: "Latest",
+    titleHighlight: "post",
+    text: "Stories, tips and product news on sharing rides, staying safe and getting around your city smarter.",
+    cta: "Read more",
+  },
+  pageSize: 6,
+  categories: ["Commuting", "Safety", "Product updates", "Community", "Cities"],
+  posts: [
+    { id: 1, category: "Safety", image: "live", date: "2026-10-29", minutes: 5, title: "How live trip sharing keeps your family in the loop", excerpt: "Send one link and anyone you trust can follow your ride on a map, from pick-up to drop-off." },
+    { id: 2, category: "Commuting", image: "commute", date: "2026-10-27", minutes: 4, title: "Split the fuel, skip the traffic stress: a week of carpooling", excerpt: "We followed five office-goers who swapped solo drives for shared rides. Here is what changed." },
+    { id: 3, category: "Product updates", image: "phone", date: "2026-10-24", minutes: 3, title: "What's new in Cogo v2.4: smarter matching and quicker sign-in", excerpt: "Better route matching, a faster verification flow and a few small fixes you asked for." },
+    { id: 4, category: "Safety", image: "share", date: "2026-10-21", minutes: 6, title: "Women Mode explained: who you see, and who sees you", excerpt: "A plain-language look at how verified, women-only matching works for riders and drivers alike." },
+    { id: 5, category: "Cities", image: "about", date: "2026-10-18", minutes: 4, title: "Ahmedabad and Gandhinagar: the routes riders love most", excerpt: "From SG Highway to Infocity, the corridors where shared rides save the most time and money." },
+    { id: 6, category: "Community", image: "commute", date: "2026-10-15", minutes: 5, title: "Meet the drivers who turned an empty seat into a daily habit", excerpt: "Three Cogo drivers on why they offer rides, what they have learned and who they have met." },
+    { id: 7, category: "Commuting", image: "share", date: "2026-10-12", minutes: 3, title: "Five etiquette tips for a smoother shared ride", excerpt: "Be on time, keep it friendly and respect the playlist. Small habits that make every trip better." },
+    { id: 8, category: "Safety", image: "phone", date: "2026-10-09", minutes: 4, title: "Verified ID and vehicle checks: what we look at and why", excerpt: "Every driver and car goes through checks before the first ride. Here is the full list." },
+    { id: 9, category: "Product updates", image: "live", date: "2026-10-06", minutes: 2, title: "Introducing in-app support, right when you need it", excerpt: "Chat with our team without leaving your trip. Faster answers, with your ride details attached." },
+    { id: 10, category: "Cities", image: "about", date: "2026-10-03", minutes: 5, title: "Where Cogo is heading next: Bengaluru, Mumbai, Pune and more", excerpt: "A first look at the cities on our roadmap and how you can help bring Cogo to yours." },
+    { id: 11, category: "Community", image: "share", date: "2026-09-30", minutes: 4, title: "Cutting carbon one shared seat at a time", excerpt: "How many kilometres, litres of fuel and kilos of CO₂ our community saved this quarter." },
+    { id: 12, category: "Commuting", image: "live", date: "2026-09-27", minutes: 6, title: "Rider or driver? How to choose the commute that fits your week", excerpt: "A simple way to decide when to offer a ride, when to take one and when to drive solo." },
+  ],
+  newsletter: {
+    titleLead: "Get new stories",
+    titleHighlight: "in your inbox",
+    placeholder: "you@example.com",
+    cta: "Subscribe",
+    note: "We'll email you a link to confirm. You can unsubscribe at any time.",
+    success: "Thanks! Check your inbox to confirm your subscription.",
+  },
+  empty: "No stories in this category yet. Check back soon.",
 };

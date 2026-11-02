@@ -21,9 +21,10 @@ import CommutePage from "./components/CommutePage.jsx";
 import FamilyTrackingPage from "./components/FamilyTrackingPage.jsx";
 import AboutPage from "./components/AboutPage.jsx";
 import ContactPage from "./components/ContactPage.jsx";
-import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, WOMEN_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE, ABOUT_PAGE, CONTACT_PAGE } from "./data/content.js";
+import BlogPage from "./components/BlogPage.jsx";
+import { HOW_PAGE, DRIVE_PAGE, FEATURES_PAGE, HELP_PAGE, WOMEN_PAGE, PRICING_PAGE, COMMUTE_PAGE, FAMILY_PAGE, ABOUT_PAGE, CONTACT_PAGE, BLOG_PAGE } from "./data/content.js";
 
-/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/about", "#/contact", "#/help", "#/women-mode" and "#/pricing" are pages, any other hash is a home-page anchor. */
+/* Minimal hash router: "#/how-it-works", "#/drive", "#/features", "#/commute-features", "#/family-tracking", "#/about", "#/contact", "#/blog", "#/help", "#/women-mode" and "#/pricing" are pages, any other hash is a home-page anchor. */
 const getPage = () => {
   const { hash } = window.location;
   if (hash === HOW_PAGE) return "how";
@@ -36,6 +37,7 @@ const getPage = () => {
   if (hash === FAMILY_PAGE) return "family";
   if (hash === ABOUT_PAGE) return "about";
   if (hash === CONTACT_PAGE) return "contact";
+  if (hash === BLOG_PAGE) return "blog";
   return "home";
 };
 
@@ -87,6 +89,8 @@ export default function App() {
           <AboutPage />
         ) : page === "contact" ? (
           <ContactPage />
+        ) : page === "blog" ? (
+          <BlogPage />
         ) : (
           <>
             <Hero />

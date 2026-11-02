@@ -1,0 +1,367 @@
+/* ==========================================================================
+   Blog page: hero, category filters, post grid, pagination, newsletter.
+   Content width matches the other inner pages (1000px, wider on big screens).
+   ========================================================================== */
+
+.bp-hero,
+.bp-list,
+.bp-news {
+  --bp-wide: 1000px;
+}
+
+@media (min-width: 1600px) {
+  .bp-hero,
+  .bp-list,
+  .bp-news {
+    --bp-wide: 1180px;
+  }
+}
+
+.bp-hero > .container,
+.bp-list > .container {
+  max-width: var(--bp-wide);
+}
+
+/* keep content clear of a notch when a phone is held sideways */
+.bp-hero > .container,
+.bp-list > .container,
+.bp-news > .container {
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px))
+    max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Hero ---------- */
+
+.bp-hero {
+  padding-block: clamp(20px, 4vw, 56px) clamp(24px, 4vw, 48px);
+}
+
+.bp-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.bp-hero__title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bp-hero__text {
+  max-width: 34ch;
+  margin-top: 14px;
+  font-size: clamp(12px, 0.9vw, 14px);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.bp-hero__cta {
+  margin-top: 22px;
+  padding-inline: 22px;
+}
+
+.bp-hero__art img {
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  height: auto;
+}
+
+/* ---------- Filters ---------- */
+
+.bp-list {
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+.bp-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.bp-chip {
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.bp-chip:hover {
+  background: var(--green-soft-2);
+}
+
+.bp-chip.is-active {
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------- Post grid ---------- */
+
+.bp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 20px);
+}
+
+.bp-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--surface);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Photo slot. Artwork is shown whole (contain) on a soft tint, so any image fits;
+   swap in cover-style photos by adding `object-fit: cover` if the art is photography. */
+.bp-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9.5;
+  background: var(--green-soft);
+}
+
+/* absolutely placed so a tall image can never stretch the box */
+.bp-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.bp-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 16px 16px;
+}
+
+.bp-tag {
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--raised, #e3e7ee);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.bp-card__title {
+  margin-top: 12px;
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.bp-card__excerpt {
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bp-card__meta {
+  display: flex;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.bp-empty {
+  padding: 56px 0;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Pagination ---------- */
+
+.bp-pager {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.bp-pager__btn {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  padding-inline: 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.bp-pager__btn:hover:not(:disabled) {
+  background: var(--green-soft-2);
+}
+
+.bp-pager__btn.is-active {
+  background: var(--green);
+  color: #fff;
+}
+
+.bp-pager__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* the chevron icon points down: turn it to face left / right */
+.bp-pager__btn--prev svg {
+  transform: rotate(90deg);
+}
+
+.bp-pager__btn--next svg {
+  transform: rotate(-90deg);
+}
+
+/* ---------- Newsletter ---------- */
+
+.bp-news {
+  padding-block: clamp(40px, 6vw, 72px);
+  background: var(--surface);
+  text-align: center;
+}
+
+.bp-news__title {
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bp-news__form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 440px;
+  margin: 24px auto 0;
+  padding: 5px 5px 5px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+
+.bp-news__form:focus-within {
+  border-color: var(--green);
+}
+
+.bp-news__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.bp-news__input::placeholder {
+  color: var(--text-faint);
+}
+
+.bp-news__input:focus-visible {
+  outline: 0;
+}
+
+.bp-news__btn {
+  padding-inline: 20px;
+}
+
+.bp-news__note {
+  margin-top: 14px;
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.bp-news__error {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #d64545;
+}
+
+.bp-news__success {
+  max-width: 440px;
+  margin: 24px auto 0;
+  padding: 14px 20px;
+  border-radius: var(--r-pill);
+  background: var(--green-soft);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+[data-theme="dark"] .bp-news__success {
+  color: var(--green-bright);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .bp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .bp-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+  }
+
+  .bp-hero__text {
+    margin-inline: auto;
+  }
+
+  .bp-hero__art {
+    order: -1;
+  }
+
+  .bp-hero__art img {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 560px) {
+  .bp-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bp-chip {
+    font-size: 13px;
+  }
+
+  .bp-pager__btn {
+    min-width: 34px;
+    height: 34px;
+  }
+}
