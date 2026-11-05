@@ -23,8 +23,8 @@ import trackImg from "../assets/images/TRACK.png";
 import ratingImg from "../assets/images/rating.png";
 import onTimeImg from "../assets/images/on-time.png";
 import cancelationImg from "../assets/images/cancelation.png";
-import heroBg from"../assets/images/bg-d.jpg";
-import heroBgDark from "../assets/images/dark-Banner.jpg";
+import heroBg from "../assets/images/turrrrrrrr.png";
+import heroBgDark from "../assets/images/Turn Your Commute Into Earnings.png";
 import "./DrivePage.css";
 
 /* The app uses hash routing, so a plain "#section" link would switch to the

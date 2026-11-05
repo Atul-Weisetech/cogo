@@ -60,9 +60,9 @@ function Hero({ query, onQuery }) {
   const inputRef = useRef(null);
 
   return (
-    <section className="hp-hero" style={{ "--hp-hero-bg": `url("${heroBg}")` }}>
+    <section className="help-hero" style={{ "--help-hero-bg": `url("${heroBg}")` }}>
       <div className="container">
-        <Reveal as="h1" className="hp-hero__title">
+        <Reveal as="h1" className="help-hero__title">
           {hero.title} <span className="text-green">{hero.highlight}</span>
         </Reveal>
 

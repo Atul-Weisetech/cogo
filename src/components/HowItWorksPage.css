@@ -9,7 +9,7 @@
 .hp-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(24px, 5vw, 64px);
 }
 
@@ -18,12 +18,14 @@
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 16px;
+  text-align: left;
 }
 
 .hp-hero .section-lead {
   max-width: 44ch;
   font-size: 14px;
   color: var(--navy);
+  text-align: left;
 }
 
 .hp-hero__cta {
@@ -81,7 +83,9 @@
 }
 
 .hp-hero__cta .hp-cta--ghost:hover {
-  background: #e9ecf2;
+  background: #b5e2c3;
+  color: var(--green);
+  border-color: var(--green);
   box-shadow: none;
 }
 
@@ -402,7 +406,9 @@
 }
 
 [data-theme="dark"] .hp-hero__cta .hp-cta--ghost:hover {
-  background: var(--raised);
+  background: rgba(76, 168, 92, 0.26);
+  color: var(--green-bright);
+  border-color: var(--green-bright);
 }
 
 [data-theme="dark"] .hp-step {
@@ -490,18 +496,6 @@
 
 /* Phones */
 @media (max-width: 560px) {
-  .hp-hero {
-    text-align: center;
-  }
-
-  .hp-hero .section-lead {
-    margin-inline: auto;
-  }
-
-  .hp-hero__cta {
-    justify-content: center;
-  }
-
   .hp-hero__cta .hp-cta {
     flex: 1 1 150px;
     width: auto;

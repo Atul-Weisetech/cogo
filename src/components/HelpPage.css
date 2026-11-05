@@ -2,7 +2,7 @@
 
 /* The skyline fades to white at its bottom edge. The hero starts behind the
    sticky navbar so there's no white band above it. */
-.hp-hero {
+.help-hero {
   --nav-h: calc(88px + env(safe-area-inset-top, 0px));
   position: relative;
   isolation: isolate;
@@ -13,15 +13,15 @@
   overflow: hidden;
 }
 
-.hp-hero::before {
+.help-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--hp-hero-bg) center bottom / cover no-repeat;
+  background: var(--help-hero-bg) center bottom / cover no-repeat;
 }
 
-.hp-hero__title {
+.help-hero__title {
   font-size: clamp(30px, 3.4vw, 42px);
   font-weight: 800;
   color: var(--navy);
@@ -320,7 +320,7 @@
 }
 
 /* keep the content clear of a notch when a phone is held sideways */
-.hp-hero > .container,
+.help-hero > .container,
 .hp-body > .container {
   padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px))
     max(var(--gutter), env(safe-area-inset-right, 0px));
@@ -328,7 +328,7 @@
 
 /* ---------- Dark theme ---------- */
 
-[data-theme="dark"] .hp-hero::before {
+[data-theme="dark"] .help-hero::before {
   filter: invert(1);
   opacity: 0.5;
 }
@@ -407,12 +407,12 @@
 
 /* Landscape phones / short windows: the hero shouldn't eat the whole screen */
 @media (max-height: 520px) and (orientation: landscape) {
-  .hp-hero {
+  .help-hero {
     padding-top: calc(var(--nav-h) + 4px);
     padding-bottom: 32px;
   }
 
-  .hp-hero__title {
+  .help-hero__title {
     font-size: 28px;
   }
 
@@ -427,7 +427,7 @@
 
 /* Phones */
 @media (max-width: 640px) {
-  .hp-hero__title {
+  .help-hero__title {
     font-size: 30px;
   }
 
@@ -477,7 +477,7 @@
 
 /* Big monitors and TVs: scale the content up so it isn't lost in the middle */
 @media (min-width: 1800px) {
-  .hp-hero__title {
+  .help-hero__title {
     font-size: 56px;
   }
 
@@ -526,7 +526,7 @@
 }
 
 @media (min-width: 2400px) {
-  .hp-hero__title {
+  .help-hero__title {
     font-size: 68px;
   }
 
@@ -542,12 +542,12 @@
 /* 4K screens and TVs: the site container stops at 1472px, which leaves the
    content small in the middle, so widen and scale it for this page */
 @media (min-width: 3000px) {
-  .hp-hero > .container,
+  .help-hero > .container,
   .hp-body > .container {
     max-width: 2400px;
   }
 
-  .hp-hero__title {
+  .help-hero__title {
     font-size: 88px;
   }
 
