@@ -1,0 +1,269 @@
+/* ---------- Hero ---------- */
+
+.pp-hero {
+  --nav-h: calc(88px + env(safe-area-inset-top, 0px));
+  position: relative;
+  isolation: isolate;
+  margin-top: calc(-1 * var(--nav-h));
+  padding-top: calc(var(--nav-h) + clamp(28px, 5vw, 64px));
+  padding-bottom: clamp(36px, 6vw, 72px);
+  text-align: center;
+  overflow: hidden;
+}
+
+.pp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--pp-hero-bg) center bottom / cover no-repeat;
+}
+
+.pp-hero__title {
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* ---------- Info cards ---------- */
+
+.pp-cards-section {
+  padding-top: 0;
+}
+
+.pp-cards {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin-inline: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pp-card {
+  position: relative;
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid rgba(76, 168, 92, 0.45);
+}
+
+.pp-card__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: var(--ink-900);
+  color: #fff;
+}
+
+.pp-card__badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pp-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.pp-card__text {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ---------- Text sections ---------- */
+
+.pp-text {
+  max-width: 820px;
+}
+
+.pp-text__title {
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.pp-text__p {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.pp-check {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.pp-check__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.pp-check__tick {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+/* keep content clear of a notch when a phone is held sideways */
+.pp-hero > .container,
+.pp-cards-section > .container,
+.pp-text {
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px))
+    max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* Big monitors and TVs: give the content more room so it isn't lost in the middle */
+@media (min-width: 1400px) {
+  .pp-cards {
+    max-width: 1080px;
+  }
+
+  .pp-text {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .pp-hero__title {
+    font-size: 56px;
+  }
+
+  .pp-cards {
+    max-width: 1180px;
+  }
+
+  .pp-card {
+    padding: 26px;
+  }
+
+  .pp-card__title {
+    font-size: 18px;
+  }
+
+  .pp-card__text {
+    font-size: 14px;
+  }
+
+  .pp-text {
+    max-width: 960px;
+  }
+
+  .pp-text__p,
+  .pp-check__item {
+    font-size: 15.5px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 800px) {
+  .pp-cards {
+    max-width: 640px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Landscape phones / short windows: the hero shouldn't eat the whole screen */
+@media (max-height: 520px) and (orientation: landscape) {
+  .pp-hero {
+    padding-top: calc(var(--nav-h) + 4px);
+    padding-bottom: 20px;
+  }
+
+  .pp-hero__title {
+    font-size: 26px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .pp-card {
+    padding: 18px;
+  }
+
+  .pp-text__p,
+  .pp-check__item {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 560px) {
+  .pp-cards {
+    max-width: 420px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .pp-hero__title {
+    font-size: 26px;
+  }
+
+  .pp-cards {
+    gap: 12px;
+  }
+
+  .pp-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .pp-card__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pp-text__title {
+    font-size: 21px;
+  }
+
+  .pp-check {
+    gap: 10px;
+  }
+}
+
+/* Very small phones and narrow foldables */
+@media (max-width: 340px) {
+  .pp-hero__title {
+    font-size: 23px;
+  }
+
+  .pp-card {
+    padding: 14px;
+  }
+
+  .pp-check__item {
+    gap: 8px;
+  }
+}

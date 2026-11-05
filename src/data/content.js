@@ -27,6 +27,8 @@ export const CONTACT_PAGE = "#/contact";
 
 export const BLOG_PAGE = "#/blog";
 
+export const PRIVACY_PAGE = "#/privacy-policy";
+
 /* Primary nav. Copy and targets are placeholders pending final Figma links. */
 export const navLinks = [
   { label: "How it works", href: HOW_PAGE },
@@ -1031,8 +1033,7 @@ export const contactPage = {
     maxFileMb: 10,
     consent: "I agree COGO may use these details to respond.",
     privacyLabel: "Privacy Policy",
-    /* same placeholder target as the footer's Privacy Policy link */
-    privacyHref: "#contact",
+    privacyHref: PRIVACY_PAGE,
     submit: "Send message",
     success: {
       title: "Thanks, we've got your message.",
@@ -1051,6 +1052,67 @@ export const contactPage = {
     { title: "Press kit", cta: "press@cogo.app", href: "mailto:press@cogo.app" },
     { title: "Partnerships", cta: "Groups & Companies", href: "mailto:partnerships@cogo.app" },
   ],
+};
+
+/* "Privacy Policy" page (#/privacy-policy). The grievance officer card links to the
+   same contact details as contactPage.channels, so keep the two in sync. */
+export const privacyPage = {
+  hero: { title: "Privacy", highlight: "Policy" },
+  cards: [
+    {
+      icon: "docLines",
+      title: "Data we collect",
+      text: "Your name, phone number, ID and vehicle documents when you verify, plus trip details like pickup, drop-off and route.",
+    },
+    {
+      icon: "chatQuestion",
+      title: "Why we use it",
+      text: "To verify drivers and riders, match compatible routes, split the cost fairly, keep you safe on a trip and improve the app.",
+    },
+    {
+      icon: "docCheck",
+      title: "Your consents",
+      text: "We ask before collecting anything sensitive — ID, selfie or live location — and you can withdraw consent any time.",
+    },
+    {
+      icon: "sprout",
+      title: "How long we keep it",
+      text: "Trip and verification records are kept while your account is active, and as long after as Indian law requires, then deleted.",
+    },
+    {
+      icon: "share",
+      title: "Who we share it with",
+      text: "Only the driver or riders on your trip see what they need to complete it. We never sell your data to anyone.",
+    },
+    {
+      icon: "shieldCheck",
+      title: "Your rights",
+      text: "Access, correct, download or delete your personal data, and opt out of non-essential messages, from your account anytime.",
+    },
+    {
+      icon: "user",
+      title: "Grievance Officer",
+      text: "Acknowledgement within 24 hours and resolution within 15 days for any privacy complaint, as required by the IT Rules 2021.",
+      badge: "1",
+    },
+  ],
+  overview: {
+    title: "How we",
+    highlight: "protect you",
+    paragraphs: [
+      "Cogo is built around cost-sharing between real people, which means trust and privacy have to come first. Every verification step — ID, licence, vehicle RC and PUC — exists to keep both drivers and riders safe, and the data behind it is handled with the same care we'd want for our own.",
+      "We collect only what a trip actually needs, encrypt it in transit and at rest, and give you control over what's shared and for how long. This policy explains what we collect, why, and the choices you have — in plain language, not legal filler.",
+    ],
+  },
+  commitments: {
+    title: "Your privacy, your",
+    highlight: "control",
+    items: [
+      "Location is shared only with your matched driver or riders, and only for the duration of the trip.",
+      "Review, download or delete your data from the app at any time — no support ticket required.",
+      "We never sell personal data to advertisers or any other third party.",
+    ],
+  },
 };
 
 export const testimonials = [
@@ -1134,7 +1196,7 @@ export const footer = {
       title: "Legal",
       items: [
         { label: "Terms of Service", href: "#contact" },
-        { label: "Privacy Policy", href: "#contact" },
+        { label: "Privacy Policy", href: PRIVACY_PAGE },
         { label: "Cancellation & Refund", href: "#contact" },
         { label: "Grievance Officer", href: CONTACT_PAGE },
         { label: "Cookie Notice", href: "#contact" },

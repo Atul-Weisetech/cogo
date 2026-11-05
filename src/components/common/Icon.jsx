@@ -163,6 +163,27 @@ const paths = {
       <path d="M20 10.5V16h-5.5" {...S} strokeWidth="2.2" />
     </>
   ),
+  docLines: (
+    <>
+      <path d="M6 3.5h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" {...S} />
+      <path d="M14 3.5V8h4" {...S} />
+      <path d="M8 12.5h8M8 16h5" {...S} />
+    </>
+  ),
+  docCheck: (
+    <>
+      <path d="M6 3.5h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" {...S} />
+      <path d="M14 3.5V8h4" {...S} />
+      <path d="m8.3 13.3 2 2L15.7 11" {...S} strokeWidth="2" />
+    </>
+  ),
+  chatQuestion: (
+    <>
+      <path d="M4 5.5h16a1 1 0 0 1 1 1V15a1 1 0 0 1-1 1H9l-4 3.5V16H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z" {...S} />
+      <path d="M9.3 9.4a2.3 2.3 0 1 1 3.4 2c-.7.45-1.2.85-1.2 1.7" {...S} />
+      <circle cx="11.5" cy="15.35" r="1" fill="currentColor" />
+    </>
+  ),
 };
 
 export default function Icon({ name, size = 24, className = "", title }) {
